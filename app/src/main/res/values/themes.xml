@@ -2,14 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Mapatec" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/verde_claro</item>
+        <item name="colorPrimary">@color/verde</item>
     </style>
 
     <style name="Theme.Mapatec" parent="Base.Theme.Mapatec" />
 
     <style name="BottonNavigation">
         <item name="android:background">@color/verde</item>
-        <item name="itemIconTint">@color/white</item>
+        <item name="itemIconTint" >@color/white</item>
         <item name="itemTextColor">@color/white</item>
     </style>
 </resources>
