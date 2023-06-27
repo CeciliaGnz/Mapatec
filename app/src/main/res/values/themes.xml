@@ -12,4 +12,10 @@
         <item name="itemIconTint" >@color/white</item>
         <item name="itemTextColor">@color/white</item>
     </style>
+
+    <style name="radius">
+        <item name="cornerSizeBottomRight">100dp</item>
+
+    </style>
+
 </resources>
