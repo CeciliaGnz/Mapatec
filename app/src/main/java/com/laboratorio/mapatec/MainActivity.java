@@ -1,49 +1,59 @@
 package com.laboratorio.mapatec;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import com.laboratorio.mapatec.databinding.ActivityMainBinding;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
-    @SuppressLint("NonConstantResourceId")
+    BottomNavigationView bottomNavigationView;
+
+    inicioFragment InicioFragment= new inicioFragment();
+    buscarFragment BuscarFragment= new buscarFragment();
+    mapaFragment MapaFragment= new mapaFragment();
+    perfilFragment PerfilFragment= new perfilFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        replaceFragment(new homeFragment());
+        setContentView(R.layout.activity_main);
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.inicio:
-                    replaceFragment(new homeFragment());
-                    break;
-                case R.id.buscar:
-                    replaceFragment(new searchFragment());
-                    break;
-                case R.id.mapa:
-                    replaceFragment(new mapFragment());
-                    break;
-                case R.id.perfil:
-                    replaceFragment(new loginFragment());
-                    break;
+        bottomNavigationView=findViewById(R.id.bottomNavigationView);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, InicioFragment).commit();
 
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId= item.getItemId();
+
+                    if(itemId==R.id.inicio) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, InicioFragment).commit();
+                        return true;
+                    }
+                    else if(itemId== R.id.buscar) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, BuscarFragment).commit();
+                        return true;
+                    }
+                    else if(itemId==R.id.mapa) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, MapaFragment).commit();
+                        return true;
+                    }
+                    else if(itemId==R.id.perfil) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, PerfilFragment).commit();
+                        return true;
+                    }
+
+                return false;
             }
-            return true;
         });
-    }
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
+
     }
 }
