@@ -14,8 +14,8 @@
     </style>
 
     <style name="radius">
-        <item name="cornerSizeBottomRight">100dp</item>
-
+        <item name="cornerSizeBottomRight">150dp</item>
+        <!-- Para las imagenes con borde -->
     </style>
 
 </resources>
