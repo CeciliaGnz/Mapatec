@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".perfilFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/back"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="20dp"
+        app:icon="?attr/actionModeCloseDrawable"
+        app:iconSize="30dp"
+        app:iconTint="@color/verde" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="153dp"
+        android:layout_height="147dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/circle_border_profile"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile" />
 
 </FrameLayout>
