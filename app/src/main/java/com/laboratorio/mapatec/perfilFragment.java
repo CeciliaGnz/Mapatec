@@ -71,7 +71,7 @@ public class perfilFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
         return view;}
 
-
+   //METODO PARA EL BOTTON DE REGRESAR QUE TE LLEVE A UN FRAGMENTO EN ESPECIFICO EN ESTA CASO INICIO
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         btn_back = view.findViewById(R.id.button_back);
@@ -94,6 +94,5 @@ public class perfilFragment extends Fragment {
         });
 
     }
-    //Metodos por nosotros
 
 }
