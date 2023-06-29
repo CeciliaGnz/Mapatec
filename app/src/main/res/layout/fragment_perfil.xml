@@ -40,7 +40,8 @@
         android:layout_marginLeft="170dp"
         android:layout_marginTop="280dp"
         android:text="Administrador"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/view3"
@@ -84,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="460dp"
-        android:text="Iniciar sesión" />
+        android:text="Iniciar sesión"
+        android:textStyle="bold" />
 
 </FrameLayout>
