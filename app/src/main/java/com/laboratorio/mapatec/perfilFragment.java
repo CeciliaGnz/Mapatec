@@ -2,11 +2,19 @@ package com.laboratorio.mapatec;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import android.view.View.OnClickListener;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class perfilFragment extends Fragment {
+    Button btn_back;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +68,32 @@ public class perfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+        return view;}
+
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        btn_back = view.findViewById(R.id.button_back);
+        btn_back.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager =getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+
+                transaction.replace(R.id.frame_layout, inicioFragment.newInstance("", ""));
+
+                transaction.commit();
+
+                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+
+                // Establecer el ítem seleccionado correspondiente al inicio
+                bottomNavigationView.setSelectedItemId(R.id.inicio);
+            }
+        });
+
     }
+    //Metodos por nosotros
+
 }
