@@ -42,7 +42,7 @@
                 app:iconGravity="top"
                 app:iconSize="30dp"
                 app:iconTint="@color/verde"
-                android:onClick="Back"/>
+                android:onClick="onClick"/>
 
         </FrameLayout>
 
