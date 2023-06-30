@@ -66,7 +66,11 @@ public class inicioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
+        b_nav=view.findViewById(R.id.button_nav);
+        b_info = view.findViewById(R.id.button_info);
         b_even = view.findViewById(R.id.button_event);
+        b_salir= view.findViewById(R.id.button_salir);
+
         b_even.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,6 +79,13 @@ public class inicioFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        b_info.setOnClickListener(view1 -> {
+            // Crear un Intent para iniciar la actividad deseada
+            Intent intent = new Intent(getActivity(), informacion.class);
+            startActivity(intent);
+        });
+
 
         return view;
     }

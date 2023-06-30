@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 
 public class eventos extends AppCompatActivity {
 
-    //inicioFragment InicioFragment= new inicioFragment();
     Button btn_back;
 
     protected void onCreate(Bundle savedInstanceState) {
