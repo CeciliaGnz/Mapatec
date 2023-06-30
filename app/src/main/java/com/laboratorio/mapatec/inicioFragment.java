@@ -88,6 +88,15 @@ public class inicioFragment extends Fragment {
             }
     });
 
+        b_salir.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
+            }
+        });
+
         return view;
     }
 
