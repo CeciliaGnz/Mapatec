@@ -17,7 +17,7 @@
             android:exported="true">
         </activity>
 
-        <activity android:name=".informacion"
+        <activity android:name=".Informacionn"
             android:exported="true">
         </activity>
 

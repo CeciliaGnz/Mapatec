@@ -5,8 +5,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class informacion extends AppCompatActivity {
-
+public class Informacionn extends AppCompatActivity {
     Button btn_back;
 
     protected void onCreate(Bundle savedInstanceState) {

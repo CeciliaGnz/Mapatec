@@ -51,6 +51,7 @@
         android:layout_marginLeft="110dp"
         android:layout_marginTop="310dp"
         android:backgroundTint="@color/white"
+        android:onClick="onClick"
         android:text="Información"
         android:textColor="@color/black"
         android:textSize="18dp"
@@ -58,8 +59,7 @@
         app:iconSize="25dp"
         app:iconTint="@color/black"
         app:strokeColor="@color/verde"
-        app:strokeWidth="5dp"
-        android:onClick="Informacion"/>
+        app:strokeWidth="5dp" />
 
     <Button
         android:id="@+id/button_event"

@@ -80,15 +80,19 @@ public class inicioFragment extends Fragment {
             }
         });
 
+        b_info.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Informacionn.class);
+                startActivity(intent);
+            }
+    });
+
         return view;
     }
 
     //Metodos de los botones
-    public void Informacion(View view) {
-        // Crear un Intent para iniciar la actividad deseada
-        Intent intent = new Intent(getActivity(), informacion.class);
-        startActivity(intent);
-    }
+
 
 
 }
