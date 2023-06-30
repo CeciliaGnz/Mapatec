@@ -10,12 +10,15 @@
 
     <Button
         android:id="@+id/button_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="45dp"
-        android:background="?attr/actionModeCloseDrawable"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/white"
+        app:icon="?attr/homeAsUpIndicator"
+        app:iconGravity="top"
+        app:iconSize="30dp"
+        app:iconTint="@color/verde"
         android:onClick="onClick" />
 
     <View

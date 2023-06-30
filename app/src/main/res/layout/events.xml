@@ -30,12 +30,28 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/conferencia"
                 app:shapeAppearance="@style/radius" />
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="45dp"
+                android:backgroundTint="@color/white"
+                app:icon="?attr/homeAsUpIndicator"
+                app:iconGravity="top"
+                app:iconSize="30dp"
+                app:iconTint="@color/verde"
+                android:onClick="Back"/>
+
         </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="480dp"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
