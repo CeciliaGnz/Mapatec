@@ -71,11 +71,11 @@ public class inicioFragment extends Fragment {
         b_even = view.findViewById(R.id.button_event);
         b_salir= view.findViewById(R.id.button_salir);
 
-        b_even.setOnClickListener(new OnClickListener() {
+
+        b_nav.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Crear un Intent para iniciar la actividad deseada
-                Intent intent = new Intent(getActivity(), eventos.class);
+                Intent intent = new Intent(getActivity(), Navegar.class);
                 startActivity(intent);
             }
         });
@@ -88,6 +88,15 @@ public class inicioFragment extends Fragment {
             }
     });
 
+        b_even.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Crear un Intent para iniciar la actividad deseada
+                Intent intent = new Intent(getActivity(), eventos.class);
+                startActivity(intent);
+            }
+        });
+
         b_salir.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,9 +108,5 @@ public class inicioFragment extends Fragment {
 
         return view;
     }
-
-    //Metodos de los botones
-
-
 
 }

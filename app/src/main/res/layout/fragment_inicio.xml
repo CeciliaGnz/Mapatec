@@ -35,6 +35,7 @@
         android:backgroundTint="@color/white"
         android:text="Navegar"
         android:textColor="@color/black"
+        android:onClick="onClick"
         android:textSize="18dp"
         app:icon="@android:drawable/ic_menu_send"
         app:iconSize="25dp"
