@@ -66,11 +66,34 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="@string/info_utp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="119dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/editext_border"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:text="Contacto"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/contacto_utp"
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </LinearLayout>
