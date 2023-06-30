@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 public class eventos extends AppCompatActivity {
-
+    inicioFragment InicioFragment= new inicioFragment();
+    androidx.fragment.app.FragmentManager fragmentManager = getSupportFragmentManager();// Obtener el FragmentManager
     Button btn_back;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +18,6 @@ public class eventos extends AppCompatActivity {
     }
 
     public void Back(){
-        inicioFragment InicioFragment= new inicioFragment();
-
-        // Obtener el FragmentManager
-        androidx.fragment.app.FragmentManager fragmentManager = getSupportFragmentManager();
 
         // Reemplazar el contenido actual del contenedor del fragmento con el nuevo fragmento
         fragmentManager.beginTransaction()

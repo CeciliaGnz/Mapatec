@@ -28,7 +28,7 @@
                 android:paddingRight="15dp"
                 android:paddingBottom="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/informacionfondo"
+                android:src="@drawable/fondonavegar"
                 app:shapeAppearance="@style/radius" />
 
             <Button

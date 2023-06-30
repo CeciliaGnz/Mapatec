@@ -15,4 +15,16 @@ public class Navegar extends AppCompatActivity {
 
         btn_back=(Button) findViewById(R.id.button_back);
     }
+
+    public void Back(){
+        inicioFragment InicioFragment= new inicioFragment();
+
+        // Obtener el FragmentManager
+        androidx.fragment.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Reemplazar el contenido actual del contenedor del fragmento con el nuevo fragmento
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_layout, InicioFragment)
+                .commit();
+    }
 }
