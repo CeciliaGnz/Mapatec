@@ -17,6 +17,10 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".informacion"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

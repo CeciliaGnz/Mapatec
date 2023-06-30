@@ -58,7 +58,8 @@
         app:iconSize="25dp"
         app:iconTint="@color/black"
         app:strokeColor="@color/verde"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        android:onClick="Informacion"/>
 
     <Button
         android:id="@+id/button_event"
