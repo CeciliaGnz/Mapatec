@@ -23,7 +23,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
-                android:layout_width="415dp"
+                android:layout_width="match_parent"
                 android:layout_height="257dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="8dp"

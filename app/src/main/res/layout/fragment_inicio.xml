@@ -28,7 +28,7 @@
                 android:layout_height="257dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="8dp"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:src="@drawable/edificio_3"
                 app:shapeAppearance="@style/radius" />
 
