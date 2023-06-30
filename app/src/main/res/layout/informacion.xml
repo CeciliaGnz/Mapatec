@@ -53,7 +53,7 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="119dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
@@ -61,21 +61,20 @@
                 android:padding="10dp"
                 android:paddingStart="20dp"
                 android:text="Nosotros"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="350dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/info_utp"
-                android:textSize="12sp"/>
+                android:textSize="14dp"/>
 
             <TextView
                 android:id="@+id/title2"
-                android:layout_width="119dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
@@ -83,17 +82,16 @@
                 android:padding="10dp"
                 android:paddingStart="20dp"
                 android:text="Contacto"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="350dp"
-                android:layout_height="113dp"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/contacto_utp"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
 
         </LinearLayout>
     </LinearLayout>
