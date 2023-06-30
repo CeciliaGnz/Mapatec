@@ -4,9 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="info_utp">La Universidad Tecnológica de Panamá (UTP) es la institución estatal de mayor jerarquía en lo que a educación superior científica-tecnológica se refiere, en la República de Panamá.</string>
-    <string name="contacto_utp">• Avenida Ricardo J. Alfaro, Campus Metropolitano Dr. Víctor Levi Sasso.\n
-• Horario de Atención: lunes a viernes de 8:00 a. m. a 4:00 p. m.\n
-• Teléfono: (507) 560-3000\n
-•Correo: buzondesugerencias@utp.ac.pa\n
-• Apartado: 0819-07289, El Dorado, Panamá, República de Panamá</string>
+    <string name="contacto_utp">•Avenida Ricardo J. Alfaro, Campus Metropolitano Dr. Víctor Levi Sasso.\n•Horario de Atención: lunes a viernes de 8:00 a. m. a 4:00 p. m.\n•Teléfono: (507) 560-3000\n•Correo: buzondesugerencias@utp.ac.pa\n•Apartado: 0819-07289, El Dorado, Panamá, República de Panamá</string>
 </resources>
