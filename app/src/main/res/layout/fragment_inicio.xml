@@ -7,96 +7,107 @@
     tools:context=".inicioFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="263dp"
-        android:background="@drawable/border"/>
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="257dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="8dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/edificio_3"
-        app:shapeAppearance="@style/radius" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_nav"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="182dp"
-        android:layout_height="69dp"
-        android:layout_gravity="center|top|left"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="230dp"
-        android:backgroundTint="@color/white"
-        android:text="Navegar"
-        android:textColor="@color/black"
-        android:onClick="onClick"
-        android:textSize="18dp"
-        app:icon="@android:drawable/ic_menu_send"
-        app:iconSize="25dp"
-        app:iconTint="@color/black"
-        app:strokeColor="@color/verde"
-        app:strokeWidth="5dp" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="619dp">
 
-    <Button
-        android:id="@+id/button_info"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="182dp"
-        android:layout_height="69dp"
-        android:layout_gravity="center|top|left"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="310dp"
-        android:backgroundTint="@color/white"
-        android:onClick="onClick"
-        android:text="Información"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:icon="@android:drawable/ic_menu_send"
-        app:iconSize="25dp"
-        app:iconTint="@color/black"
-        app:strokeColor="@color/verde"
-        app:strokeWidth="5dp" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="263dp"
+                android:background="@drawable/border" />
 
-    <Button
-        android:id="@+id/button_event"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="182dp"
-        android:layout_height="69dp"
-        android:layout_gravity="center|top|left"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="390dp"
-        android:backgroundTint="@color/white"
-        android:onClick="onClick"
-        android:text="Eventos"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:icon="@android:drawable/ic_menu_send"
-        app:iconSize="25dp"
-        app:iconTint="@color/black"
-        app:strokeColor="@color/verde"
-        app:strokeWidth="5dp" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="257dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/edificio_3"
+                app:shapeAppearance="@style/radius" />
 
-    <Button
-        android:id="@+id/button_salir"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="182dp"
-        android:layout_height="69dp"
-        android:layout_gravity="center|top|left"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="470dp"
-        android:backgroundTint="@color/white"
-        android:text="Salir"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:icon="@android:drawable/ic_menu_send"
-        app:iconSize="25dp"
-        app:iconTint="@color/black"
-        app:strokeColor="@color/verde"
-        app:strokeWidth="5dp" />
+            <Button
+                android:id="@+id/button_nav"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="182dp"
+                android:layout_height="69dp"
+                android:layout_gravity="center|top|left"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="230dp"
+                android:backgroundTint="@color/white"
+                android:onClick="onClick"
+                android:text="Navegar"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconSize="25dp"
+                app:iconTint="@color/black"
+                app:strokeColor="@color/verde"
+                app:strokeWidth="5dp" />
+
+            <Button
+                android:id="@+id/button_info"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="182dp"
+                android:layout_height="69dp"
+                android:layout_gravity="center|top|left"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="310dp"
+                android:backgroundTint="@color/white"
+                android:onClick="onClick"
+                android:text="Información"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconSize="25dp"
+                app:iconTint="@color/black"
+                app:strokeColor="@color/verde"
+                app:strokeWidth="5dp" />
+
+            <Button
+                android:id="@+id/button_event"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="182dp"
+                android:layout_height="69dp"
+                android:layout_gravity="center|top|left"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="390dp"
+                android:backgroundTint="@color/white"
+                android:onClick="onClick"
+                android:text="Eventos"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconSize="25dp"
+                app:iconTint="@color/black"
+                app:strokeColor="@color/verde"
+                app:strokeWidth="5dp" />
+
+            <Button
+                android:id="@+id/button_salir"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="182dp"
+                android:layout_height="69dp"
+                android:layout_gravity="center|top|left"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="470dp"
+                android:backgroundTint="@color/white"
+                android:text="Salir"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconSize="25dp"
+                app:iconTint="@color/black"
+                app:strokeColor="@color/verde"
+                app:strokeWidth="5dp" />
+
+        </FrameLayout>
+    </LinearLayout>
 
 </FrameLayout>
