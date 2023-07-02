@@ -11,47 +11,89 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="262dp">
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="263dp"
-                android:background="@drawable/border" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="257dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/conferencia"
-                app:shapeAppearance="@style/radius" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button_back"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="45dp"
-                android:backgroundTint="@color/white"
-                app:icon="?attr/homeAsUpIndicator"
-                app:iconGravity="top"
-                app:iconSize="30dp"
-                app:iconTint="@color/verde"
-                android:onClick="Back"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="262dp">
 
-        </FrameLayout>
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="263dp"
+                        android:background="@drawable/border" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:orientation="vertical">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="257dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="8dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/conferencia"
+                        app:shapeAppearance="@style/radius" />
 
-        </LinearLayout>
+                    <Button
+                        android:id="@+id/button_back"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="45dp"
+                        android:backgroundTint="@color/white"
+                        android:onClick="Back"
+                        app:icon="?attr/homeAsUpIndicator"
+                        app:iconGravity="top"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/verde" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Eventos"
+                    android:textColor="@color/verde"
+                    android:textSize="44sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/degracir"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="@string/evento1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="363dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/degracir"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="@string/evento1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
