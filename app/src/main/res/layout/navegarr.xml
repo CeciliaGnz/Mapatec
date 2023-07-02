@@ -4,12 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Navegar">>
+    tools:context=".Navegar">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="406dp">
+
+
+
+    <LinearLayout
+        android:layout_width="397dp"
+        android:layout_height="885dp"
+        android:gravity="top"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -19,17 +30,35 @@
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
                 android:layout_height="263dp"
-                android:background="@drawable/border" />
+                android:background="@drawable/border"
+                android:rotation="180" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
+                android:layout_width="410dp"
                 android:layout_height="257dp"
-                android:paddingRight="15dp"
+                android:paddingRight="8dp"
                 android:paddingBottom="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/fondonavegar"
-                app:shapeAppearance="@style/radius" />
+                android:src="@drawable/fondonavegar" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/degradado_transparente" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="200dp"
+                android:fontFamily="@font/roboto"
+                android:text="Navegar"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button_back"
@@ -38,20 +67,165 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="45dp"
                 android:backgroundTint="@color/white"
+                android:onClick="onClick"
                 app:icon="?attr/homeAsUpIndicator"
                 app:iconGravity="top"
                 app:iconSize="30dp"
-                app:iconTint="@color/verde"
-                android:onClick="onClick"/>
+                app:iconTint="@color/verde" />
 
         </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Aquí colocas el resto de tus elementos -->
+
+                <LinearLayout
+                    android:layout_width="202dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <View
+                        android:id="@+id/Edi1"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/edificio1"
+
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                    <View
+                        android:id="@+id/aljibe"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/aljibe"
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                    <View
+                        android:id="@+id/pgrado"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/edifpost"
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="202dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <View
+                        android:id="@+id/edi3"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/edif3"
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                    <View
+                        android:id="@+id/cafet"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/cafeteria"
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                    <View
+                        android:id="@+id/lab"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/lab1"
+                        android:foreground="@drawable/degradado_transparente"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="-400dp"
+            android:fontFamily="@font/roboto"
+            android:text="Edificio #1"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="-40dp"
+            android:text="Edificio #3"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="160dp"
+            android:text="Aljibe"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="-30dp"
+            android:text="Cafeteria"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="155dp"
+            android:text="Postgrado"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="-30dp"
+            android:text="Laboratorio"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
     </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
