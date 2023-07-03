@@ -112,7 +112,9 @@ public class perfilFragment extends Fragment {
                 String password = pass.getText().toString();
 
                 if (validateLogin(cedula, password)) {
+                    Toast.makeText(getActivity(), "Credenciales Validas", Toast.LENGTH_SHORT).show();
                     showResetPasswordDialog();
+
                 } else {
                     Toast.makeText(getActivity(), "Credenciales inválidas", Toast.LENGTH_SHORT).show();
                 }
