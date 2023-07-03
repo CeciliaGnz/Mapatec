@@ -101,7 +101,7 @@ public class inicioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (getActivity() != null) {
-                    getActivity().finish();
+                    getActivity().finishAffinity();
                 }
             }
         });
