@@ -53,5 +53,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //Get utilizados en perfilFragment porque son privados
+    public String getPasswordColumnName() {
+        return COLUMN_PASSWORD;
+    }
+
+    public String getCedulaColumnName() {
+        return COLUMN_CEDULA;
+    }
+
+    public String getTableName() {
+        return TABLE_NAME;
+    }
 
 }

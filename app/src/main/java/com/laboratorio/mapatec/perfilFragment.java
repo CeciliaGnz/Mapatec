@@ -1,5 +1,7 @@
 package com.laboratorio.mapatec;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,7 +26,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  * create an instance of this fragment.
  */
 public class perfilFragment extends Fragment {
-    Button btn_back;
+    Button btn_back, btn_login;
+    EditText ced, pass;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,7 +80,12 @@ public class perfilFragment extends Fragment {
    //METODO PARA EL BOTTON DE REGRESAR QUE TE LLEVE A UN FRAGMENTO EN ESPECIFICO EN ESTA CASO INICIO
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
         btn_back = view.findViewById(R.id.button_back);
+        ced=view.findViewById(R.id.ced_adm);
+        pass=view.findViewById(R.id.pass_adm);
+        btn_login = view.findViewById(R.id.login);
+
         btn_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,10 +104,73 @@ public class perfilFragment extends Fragment {
             }
         });
 
+        //bd
+        btn_login.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cedula = ced.getText().toString();
+                String password = pass.getText().toString();
 
-        //BASE DE DATOS
+                if (validateLogin(cedula, password)) {
+                    showResetPasswordDialog();
+                } else {
+                    Toast.makeText(getActivity(), "Credenciales inválidas", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    private boolean validateLogin(String cedula, String password) {
+        // Obtener una instancia de la base de datos
+        DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+
+        // Obtener el nombre de las columnas
+        String cedulaColumn = databaseHelper.getCedulaColumnName();
+        String passwordColumn = databaseHelper.getPasswordColumnName();
+        String tableName = databaseHelper.getTableName();
+
+        // Definir las columnas que deseas obtener de la consulta
+        String[] projection = {passwordColumn};
+
+        // Definir la cláusula WHERE para filtrar por cédula
+        String selection = cedulaColumn + " = ?";
+        String[] selectionArgs = {cedula};
+
+        // Realizar la consulta a la base de datos
+        Cursor cursor = db.query(
+                tableName,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        boolean isValid = false;
+
+        if (cursor.moveToFirst()) {
+            // Obtener la contraseña almacenada en la base de datos
+            String storedPassword = cursor.getString(cursor.getColumnIndexOrThrow(passwordColumn));
+
+            // Comparar la contraseña ingresada con la contraseña almacenada
+            if (password.equals(storedPassword)) {
+                isValid = true;
+            }
+        }
+
+        // Cerrar el cursor y la conexión con la base de datos
+        cursor.close();
+        db.close();
+
+        return isValid;
+    }
 
 
+    private void showResetPasswordDialog() {
+        // Implementar la lógica para mostrar el diálogo de restablecimiento de contraseña aquí
     }
 
 }
