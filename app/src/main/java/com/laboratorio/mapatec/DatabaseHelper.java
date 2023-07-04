@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
 
         // Administrador 2
-        values.put(COLUMN_CEDULA, "8-145-3235");
+        values.put(COLUMN_CEDULA, "8-942-347");
         values.put(COLUMN_PASSWORD, "seguro123");
         db.insert(TABLE_NAME, null, values);
 
