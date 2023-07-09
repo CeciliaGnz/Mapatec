@@ -62,13 +62,13 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_si"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="Aceptar" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_no"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="Cancelar" />
