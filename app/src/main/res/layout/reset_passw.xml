@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".reset">
 
     <LinearLayout
         android:layout_width="317dp"
@@ -11,7 +12,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="117dp">
+        tools:layout_editor_absoluteY="117dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView8"
@@ -40,14 +42,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/cedu_adm"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Cedula del adm. a cambiar" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/new_pass"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
