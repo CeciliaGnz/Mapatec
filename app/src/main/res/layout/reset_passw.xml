@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
              android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="317dp"
+        android:layout_height="439dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="117dp">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Cambiar contraseña"
-            android:textStyle="bold"
             android:textSize="20dp"
-            android:gravity="center"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/lock"
-            android:layout_margin="20dp"/>
+            android:layout_margin="20dp"
+            app:srcCompat="@drawable/lock" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Administrador de contenido"
-            android:textStyle="bold"
-            android:textSize="18dp"
             android:layout_marginBottom="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Administrador de contenido"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="Cedula del adm. a cambiar" />
 
         <EditText
@@ -47,13 +51,13 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Nueva contraseña"
             android:background="@drawable/editext_border"
+            android:ems="10"
+            android:hint="Nueva contraseña"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:paddingStart="20dp"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/button"
