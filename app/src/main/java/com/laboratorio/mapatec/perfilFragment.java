@@ -1,5 +1,7 @@
 package com.laboratorio.mapatec;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -173,6 +175,29 @@ public class perfilFragment extends Fragment {
 
     private void showResetPasswordDialog() {
         // Implementar la lógica para mostrar el diálogo de restablecimiento de contraseña aquí
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Restablecer contraseña");
+        builder.setMessage("¿Desea cambiar su contraseña?");
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Redirigir a la actividad de restablecimiento de contraseña
+                // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
+                Toast.makeText(getActivity(), "Redirigiendo a la actividad de restablecimiento de contraseña...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Redirigir a la actividad normal de administrador
+                // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
+                Toast.makeText(getActivity(), "Redirigiendo a la actividad normal de administrador...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.show();
     }
 
 }
