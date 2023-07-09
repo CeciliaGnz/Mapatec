@@ -38,14 +38,19 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Cedula del adm. a cambiar" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:hint="Nueva contraseña"
+            android:background="@drawable/editext_border"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:textSize="14sp"/>
 
         <Button
             android:id="@+id/button"
