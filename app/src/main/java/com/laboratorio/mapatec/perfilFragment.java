@@ -2,6 +2,7 @@ package com.laboratorio.mapatec;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -185,6 +186,9 @@ public class perfilFragment extends Fragment {
                 // Redirigir a la actividad de restablecimiento de contraseña
                 // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
                 Toast.makeText(getActivity(), "Redirigiendo a la actividad de restablecimiento de contraseña...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), reset.class);
+                intent.putExtra("cedula", ced);
+                startActivity(intent);
             }
         });
 
