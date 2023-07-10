@@ -3,6 +3,6 @@
     <solid android:color="#FFFFFF" /> <!-- Fondo blanco -->
     <corners android:radius="999dp" /> <!-- Radio grande para crear un círculo -->
     <stroke
-        android:width="5dp"
+        android:width="3dp"
         android:color="@color/verde" />
 </shape>
