@@ -1,10 +1,13 @@
 package com.laboratorio.mapatec;
 
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,20 +35,20 @@ public class reset extends AppCompatActivity {
         btn_si.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newPassword = newPasswordEditText.getText().toString();
+                String newPassword = new_pass.getText().toString();
 
                 // Actualizar la contraseña en la base de datos
                 updatePasswordInDatabase(newPassword);
 
                 // Mostrar mensaje de éxito o redirigir a otra actividad
-                Toast.makeText(ResetPasswordActivity.this, "Contraseña restablecida con éxito", Toast.LENGTH_SHORT).show();
+                Toast.makeText(reset.this, "Contraseña restablecida con éxito", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void updatePasswordInDatabase(String newPassword) {
         // Obtener una instancia de la base de datos
-        DatabaseHelper databaseHelper = new DatabaseHelper(ResetPasswordActivity.this);
+        DatabaseHelper databaseHelper = new DatabaseHelper(reset.this);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
         // Definir los valores a actualizar
@@ -62,5 +65,5 @@ public class reset extends AppCompatActivity {
         // Cerrar la conexión con la base de datos
         db.close();
     }
-    }
+
 }
