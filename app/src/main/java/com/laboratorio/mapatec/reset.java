@@ -2,6 +2,7 @@ package com.laboratorio.mapatec;
 
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +43,23 @@ public class reset extends AppCompatActivity {
 
                 // Mostrar mensaje de éxito o redirigir a otra actividad
                 Toast.makeText(reset.this, "Contraseña restablecida con éxito", Toast.LENGTH_SHORT).show();
+
+                //Dirigiendo a la actividad de administrador
+                Intent intent = new Intent(reset.this, Admin_activity.class);
+                intent.putExtra("cedula", cedula);
+                startActivity(intent);
+            }
+        });
+
+        btn_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Dirigiendo a la actividad de administrador
+                Toast.makeText(reset.this, "Cambio cancelado, dirigiendo al menú de administrador", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(reset.this, Admin_activity.class);
+                intent.putExtra("cedula", cedula);
+                startActivity(intent);
             }
         });
     }
