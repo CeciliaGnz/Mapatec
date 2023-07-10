@@ -20,6 +20,15 @@
             android:paddingTop="30dp"/>
 
         <TextView
+            android:id="@+id/ced_adm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="16dp"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="15dp"/>
+
+        <TextView
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
