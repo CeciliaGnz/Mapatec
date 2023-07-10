@@ -48,20 +48,21 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
             android:text="Agregar evento"
+            android:textSize="12dp"
             app:icon="@android:drawable/ic_menu_add"
             app:iconTint="#FFFFFF" />
 
         <LinearLayout
-            android:layout_width="390dp"
+            android:layout_width="348dp"
             android:layout_height="73dp"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="270dp"
+                android:layout_width="209dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:text="TextView" />
 
             <Button
@@ -69,20 +70,18 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:backgroundTint="#448AFF"
-                android:text="Button"
+                android:padding="15dp"
                 app:icon="@android:drawable/ic_menu_edit"
-                app:iconTint="@color/black"
-                android:padding="15dp"/>
+                app:iconTint="@color/black" />
 
             <Button
                 android:id="@+id/delete"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:backgroundTint="#FF0B0B"
-                android:text="Button"
+                android:padding="15dp"
                 app:icon="@android:drawable/ic_menu_delete"
-                app:iconTint="@color/black"
-                android:padding="15dp"/>
+                app:iconTint="@color/black" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
