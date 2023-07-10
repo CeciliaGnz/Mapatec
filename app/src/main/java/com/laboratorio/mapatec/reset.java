@@ -42,7 +42,7 @@ public class reset extends AppCompatActivity {
                 updatePasswordInDatabase(newPassword);
 
                 // Mostrar mensaje de éxito o redirigir a otra actividad
-                Toast.makeText(reset.this, "Contraseña restablecida con éxito", Toast.LENGTH_SHORT).show();
+                Toast.makeText(reset.this, "Contraseña restablecida con éxito, dirigiendo al menú de administrador", Toast.LENGTH_SHORT).show();
 
                 //Dirigiendo a la actividad de administrador
                 Intent intent = new Intent(reset.this, Admin_activity.class);

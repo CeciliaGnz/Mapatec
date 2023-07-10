@@ -178,7 +178,7 @@ public class perfilFragment extends Fragment {
     private void showResetPasswordDialog() {
         // Implementar la lógica para mostrar el diálogo de restablecimiento de contraseña aquí
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Restablecer contraseña");
+        builder.setTitle("Nueva contraseña");
         builder.setMessage("¿Desea cambiar su contraseña?");
         String cedula = ced.getText().toString();
 
@@ -187,7 +187,7 @@ public class perfilFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 // Redirigir a la actividad de restablecimiento de contraseña
                 // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
-                Toast.makeText(getActivity(), "Redirigiendo a la actividad de restablecimiento de contraseña...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Redirigiendo a restablecer su contraseña", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), reset.class);
                 intent.putExtra("cedula", cedula);
                 startActivity(intent);
@@ -199,7 +199,7 @@ public class perfilFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 // Redirigir a la actividad normal de administrador
                 // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
-                Toast.makeText(getActivity(), "Redirigiendo a la actividad normal de administrador...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Dirigiendo al menú de administrador", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), Admin_activity.class);
                 intent.putExtra("cedula", cedula);
                 startActivity(intent);
