@@ -200,6 +200,9 @@ public class perfilFragment extends Fragment {
                 // Redirigir a la actividad normal de administrador
                 // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
                 Toast.makeText(getActivity(), "Redirigiendo a la actividad normal de administrador...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Admin_activity.class);
+                intent.putExtra("cedula", cedula);
+                startActivity(intent);
             }
         });
 
