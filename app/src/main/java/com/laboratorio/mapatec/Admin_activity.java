@@ -13,11 +13,13 @@ public class Admin_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
 
-        cedula_view=findViewById(R.id.cedu_adm);
+        cedula_view=findViewById(R.id.ced_adm);
 
         Bundle extras = getIntent().getExtras();
         cedula = extras.getString("cedula");
-        cedula_view.setText(cedula);
+        cedula_view.setText("Id Adminstrador de contenido:"+ cedula);
+
+
 
     }
 }
