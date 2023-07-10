@@ -25,6 +25,9 @@
         <activity android:name=".reset"
             android:exported="true">
         </activity>
+        <activity android:name=".Admin_activity"
+            android:exported="true">
+        </activity>
 
 
         <activity
