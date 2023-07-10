@@ -17,7 +17,7 @@ public class Admin_activity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         cedula = extras.getString("cedula");
-        cedula_view.setText("Id Adminstrador de contenido:"+ cedula);
+        cedula_view.setText("ID Adminstrador: "+ cedula);
 
 
 
