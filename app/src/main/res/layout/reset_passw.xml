@@ -43,6 +43,7 @@
             android:id="@+id/cedu_adm"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="Cedula del adm. a cambiar" />
 
