@@ -89,6 +89,7 @@ public class perfilFragment extends Fragment {
         pass=view.findViewById(R.id.pass_adm);
         btn_login = view.findViewById(R.id.login);
 
+
         btn_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,6 +180,7 @@ public class perfilFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Restablecer contraseña");
         builder.setMessage("¿Desea cambiar su contraseña?");
+        String cedula = ced.getText().toString();
 
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
@@ -187,7 +189,7 @@ public class perfilFragment extends Fragment {
                 // Aquí debes iniciar la actividad correspondiente o realizar la acción deseada
                 Toast.makeText(getActivity(), "Redirigiendo a la actividad de restablecimiento de contraseña...", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), reset.class);
-                intent.putExtra("cedula", ced);
+                intent.putExtra("cedula", cedula);
                 startActivity(intent);
             }
         });
