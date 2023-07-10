@@ -63,7 +63,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="Eventos"
                     android:textColor="@color/verde"
-                    android:textSize="44sp"
+                    android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -79,19 +79,6 @@
                     android:textSize="14dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/evento2"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|left"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/degracir"
-                    android:gravity="left"
-                    android:padding="10dp"
-                    android:text="@string/evento1"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
 
