@@ -3,4 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sección de administrador de contenido"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/verde"
+            android:gravity="center_horizontal"
+            android:paddingTop="30dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
