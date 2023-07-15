@@ -16,7 +16,9 @@ public class agrega_evento extends AppCompatActivity {
     private EditText editTextHora;
     private EditText editTextLugar;
     private EditText editTextDescripcion;
+    private Button btnAgregar, btnCancelar;
     private DatabaseHelper databaseHelper;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,8 @@ public class agrega_evento extends AppCompatActivity {
         editTextHora = findViewById(R.id.editTextHora);
         editTextLugar = findViewById(R.id.editTextLugar);
         editTextDescripcion = findViewById(R.id.editTextDescripcion);
-        Button btnAgregar = findViewById(R.id.b);
-        Button btnCancelar = findViewById(R.id.btnCancelar);
+        btnAgregar = findViewById(R.id.buttonAgregar);
+        btnCancelar = findViewById(R.id.buttonCancelar);
 
         // Configurar el clic del botón Agregar
         btnAgregar.setOnClickListener(new View.OnClickListener() {
