@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_HOUR + " TEXT,"
                 + COLUMN_PLACE + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT" + ")";
-        db.execSQL(CREATE_EVENTS_TABLE);o
+        db.execSQL(CREATE_EVENTS_TABLE);
 
         // Insertarmos los datos de administradores
 
