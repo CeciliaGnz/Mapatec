@@ -31,6 +31,9 @@
         <activity android:name=".agrega_evento"
             android:exported="true">
         </activity>
+        <activity android:name=".modificar_evento"
+            android:exported="true">
+        </activity>
 
 
         <activity
