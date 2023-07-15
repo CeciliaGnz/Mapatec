@@ -14,6 +14,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CEDULA = "cedula";
     private static final String COLUMN_PASSWORD = "password";
 
+
+    //TABLE DE EVENTOS
+    private static final String TABLE_EVENTS = "events";
+    private static final String COLUMN_EVENT_ID = "event_id";
+    private static final String COLUMN_HOUR = "hora";
+    private static final String COLUMN_PLACE = "lugar";
+    private static final String COLUMN_DESCRIPTION = "descripcion";
     // Constructor
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
