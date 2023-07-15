@@ -10,6 +10,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "admin_databas.db";
     private static final int DATABASE_VERSION = 1;
+
+    //TABLA DE ADMINISTRADORES
     private static final String TABLE_NAME = "administrators";
     private static final String COLUMN_CEDULA = "cedula";
     private static final String COLUMN_PASSWORD = "password";
@@ -21,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HOUR = "hora";
     private static final String COLUMN_PLACE = "lugar";
     private static final String COLUMN_DESCRIPTION = "descripcion";
+
     // Constructor
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,11 +32,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    // Creamos la tabla
+    // Creamos la tabla ADM
         String createTableQuery = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_CEDULA + " TEXT PRIMARY KEY, " +
                 COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTableQuery);
+
+        //Creamos la tabla de eventos
+        String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
+                + COLUMN_EVENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_HOUR + " TEXT,"
+                + COLUMN_PLACE + " TEXT,"
+                + COLUMN_DESCRIPTION + " TEXT" + ")";
+        db.execSQL(CREATE_EVENTS_TABLE);
 
         // Insertarmos los datos de administradores
 
