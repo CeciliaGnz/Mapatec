@@ -22,37 +22,47 @@ public class agrega_evento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_event);
 
-        // Obtener la cantidad de eventos existentes en la tabla de eventos
-        String countQuery = "SELECT COUNT(*) FROM eventos";
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.moveToFirst();
-        int eventosCount = cursor.getInt(0);
-        cursor.close();
+        databaseHelper = new DatabaseHelper(this);
 
-// Generar el ID del evento
-        String idEvento = "evento_" + (eventosCount + 1);
+        // Obtener referencias a los elementos de la interfaz de usuario
+        editTextTitulo = findViewById(R.id.editTextTitulo);
+        editTextHora = findViewById(R.id.editTextHora);
+        editTextLugar = findViewById(R.id.editTextLugar);
+        editTextDescripcion = findViewById(R.id.editTextDescripcion);
+        Button btnAgregar = findViewById(R.id.b);
+        Button btnCancelar = findViewById(R.id.btnCancelar);
 
-// Obtener los valores ingresados por el administrador desde los EditText
-        String titulo = editTextTitulo.getText().toString();
-        String hora = editTextHora.getText().toString();
-        String lugar = editTextLugar.getText().toString();
-        String descripcion = editTextDescripcion.getText().toString();
+        // Configurar el clic del botón Agregar
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener los valores ingresados por el administrador
+                String titulo = editTextTitulo.getText().toString();
+                String hora = editTextHora.getText().toString();
+                String lugar = editTextLugar.getText().toString();
+                String descripcion = editTextDescripcion.getText().toString();
 
-// Guardar el evento en la base de datos
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("id_evento", idEvento);
-        values.put("titulo", titulo);
-        values.put("hora", hora);
-        values.put("lugar", lugar);
-        values.put("descripcion", descripcion);
-        db.insert("eventos", null, values);
-        db.close();
+                // Insertar el evento en la base de datos
+                long newRowId = databaseHelper.insertarEvento(titulo, hora, lugar, descripcion);
 
-// Volver a la actividad Admin_activity
-        Intent resultIntent = new Intent();
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
+                if (newRowId != -1) {
+                    // La inserción fue exitosa
+                    Toast.makeText(agrega_evento.this, "Evento agregado correctamente", Toast.LENGTH_SHORT).show();
+                    finish(); // Cerrar la actividad y regresar a la anterior
+                } else {
+                    // Hubo un error en la inserción
+                    Toast.makeText(agrega_evento.this, "Error al agregar el evento", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Configurar el clic del botón Cancelar
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cerrar la actividad y regresar a la anterior
+                finish();
+            }
+        });
     }
 }

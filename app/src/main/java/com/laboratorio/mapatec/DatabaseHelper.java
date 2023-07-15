@@ -2,6 +2,7 @@ package com.laboratorio.mapatec;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -20,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //TABLE DE EVENTOS
     private static final String TABLE_EVENTS = "events";
     private static final String COLUMN_EVENT_ID = "event_id";
+    private static final String COLUMN_EVENT_TITLE = "titulo";
     private static final String COLUMN_HOUR = "hora";
     private static final String COLUMN_PLACE = "lugar";
     private static final String COLUMN_DESCRIPTION = "descripcion";
@@ -40,7 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Creamos la tabla de eventos
         String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
-                + COLUMN_EVENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_EVENT_ID + " TEXT PRIMARY KEY,"
+                + COLUMN_EVENT_TITLE + " TEXT,"
                 + COLUMN_HOUR + " TEXT,"
                 + COLUMN_PLACE + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT" + ")";
@@ -64,6 +67,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, "admin321");
         db.insert(TABLE_NAME, null, values);
 
+
+
     }
 
     @Override
@@ -83,5 +88,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getTableName() {
         return TABLE_NAME;
     }
+
+    //TABLE EVENTOS
+    public long insertarEvento(String titulo, String hora, String lugar, String descripcion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Obtener el número actual de eventos en la tabla
+        String countQuery = "SELECT COUNT(*) FROM " + TABLE_EVENTS;
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int eventosCount = cursor.getInt(0);
+        cursor.close();
+
+        // Generar el ID del evento con el formato "evento_X"
+        String idEvento = "evento_" + (eventosCount + 1);
+
+        // Insertar los valores en la tabla de eventos
+        values.put(COLUMN_EVENT_ID, idEvento);
+        values.put(COLUMN_EVENT_TITLE, titulo);
+        values.put(COLUMN_HOUR, hora);
+        values.put(COLUMN_PLACE, lugar);
+        values.put(COLUMN_DESCRIPTION, descripcion);
+
+        // Insertar el nuevo evento y obtener el ID de la nueva fila
+        long newRowId = db.insert(TABLE_EVENTS, null, values);
+        db.close();
+
+        // Devolver el ID de la nueva fila
+        return newRowId;
+    }
+
+
 
 }
