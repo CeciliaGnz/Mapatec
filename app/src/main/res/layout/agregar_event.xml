@@ -35,10 +35,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Titulo:" />
+
+        <EditText
+            android:id="@+id/editTextTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Hora:" />
 
         <EditText
-            android:id="@+id/editTextHour"
+            android:id="@+id/editTextHora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -49,7 +60,7 @@
             android:text="Lugar:" />
 
         <EditText
-            android:id="@+id/editTextPlace"
+            android:id="@+id/editTextLugar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -60,7 +71,7 @@
             android:text="Descripción:" />
 
         <EditText
-            android:id="@+id/editTextDescription"
+            android:id="@+id/editTextDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
