@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".agrega_evento">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="356dp"
+        android:layout_height="696dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="35dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sección de agregar evento"
             android:layout_gravity="center"
-            android:textSize="18dp"
-            android:textStyle="bold"
+            android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:paddingTop="20dp"/>
+            android:text="Sección de agregar evento"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,9 +62,9 @@
             android:id="@+id/buttonAgregar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_gravity="center"/>
+            android:text="Agregar" />
 
     </LinearLayout>
 
