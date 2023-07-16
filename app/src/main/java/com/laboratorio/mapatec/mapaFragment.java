@@ -3,6 +3,11 @@ package com.laboratorio.mapatec;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import com.indooratlas.android.sdk.IALocationManager;
+import com.indooratlas.android.sdk.IALocationListener;
+import com.indooratlas.android.sdk.IALocation;
+import com.indooratlas.android.sdk.IALocationRequest;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,50 +20,57 @@ import android.view.ViewGroup;
  */
 public class mapaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private IALocationManager mIALocationManager;
 
     public mapaFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment mapaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static mapaFragment newInstance(String param1, String param2) {
-        mapaFragment fragment = new mapaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static mapaFragment newInstance() {
+        return new mapaFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Configurar cualquier parámetro o argumento necesario
+
+        // Inicializar IALocationManager
+        mIALocationManager = IALocationManager.create(requireContext());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mapa, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
+        // Inflar el diseño del fragmento y realizar cualquier configuración adicional
+
+        // Configurar IALocationListener para recibir actualizaciones de ubicación
+        IALocationListener mIALocationListener = new IALocationListener() {
+            @Override
+            public void onLocationChanged(IALocation iaLocation) {
+                // Lógica para manejar las actualizaciones de ubicación
+                double latitude = iaLocation.getLatitude();
+                double longitude = iaLocation.getLongitude();
+                // ...
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+                // Lógica para manejar los cambios de estado de ubicación
+            }
+        };
+
+        // Solicitar actualizaciones de ubicación
+        mIALocationManager.requestLocationUpdates(IALocationRequest.create(), mIALocationListener);
+
+        return rootView;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // Detener las actualizaciones de ubicación y liberar recursos
+        mIALocationManager.destroy();
     }
 }

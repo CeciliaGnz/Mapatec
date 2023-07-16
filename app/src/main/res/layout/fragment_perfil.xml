@@ -51,7 +51,6 @@
         android:id="@+id/ced_adm"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
         android:layout_marginLeft="60dp"
         android:layout_marginTop="335dp"
         android:background="@drawable/editext_border"
@@ -61,14 +60,7 @@
         android:padding="10dp"
         android:paddingStart="20dp"
         android:textSize="14sp" />
-=======
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="345dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:ems="10"
-        android:hint="0-0000-0000"
-        android:inputType="text" />
+
 
     <View
         android:id="@+id/view4"
@@ -77,13 +69,12 @@
         android:layout_marginLeft="45dp"
         android:layout_marginTop="400dp"
         android:background="@drawable/circulo" />
->>>>>>> Stashed changes
+
 
     <EditText
         android:id="@+id/pass_adm"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
         android:layout_marginLeft="60dp"
         android:layout_marginTop="395dp"
         android:background="@drawable/editext_border"
@@ -93,15 +84,7 @@
         android:padding="10dp"
         android:paddingStart="20dp"
         android:textSize="14sp" />
-=======
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="404dp"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:inputType="text" />
->>>>>>> Stashed changes
+
 
     <Button
         android:id="@+id/login"
