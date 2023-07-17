@@ -34,6 +34,9 @@
         <service
             android:name="com.indooratlas.android.sdk.IALocationService"
             android:exported="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAbkbkp-OjpU0QWPV9jOaerJFuiLuleELc"/>
 
 
 

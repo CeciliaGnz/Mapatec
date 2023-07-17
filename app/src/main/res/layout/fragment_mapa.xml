@@ -17,11 +17,15 @@
 
     <fragment
         android:id="@+id/map"
-
+        android:name="com.google.android.gms.maps.SupportMapFragment"
 
         android:layout_width="match_parent"
-        android:layout_height="325dp" />
+        android:layout_height="585dp" />
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="106dp" />
 
 
 </FrameLayout>

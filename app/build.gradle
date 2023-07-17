@@ -36,12 +36,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation fileTree(dir: 'C:\\Users\\16edu\\OneDrive\\Documents\\GitHub\\Mapatec', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\16edu\\OneDrive\\Documents\\GitHub\\Mapatec', include: ['*.aar', '*.jar'], exclude: [])
     // implementation 'com.indooratlas.android:indooratlas-android-sdk:3.6.3'
    // implementation 'com.indooratlas.android:groundsage-android-sdk:1.0.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation files("C:/Users/16edu/OneDrive/Documents/GitHub/Mapatec/indooratlas-android-sdk-3.6.3.aar");
-}
+    }
 
