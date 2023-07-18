@@ -1,5 +1,6 @@
 package com.laboratorio.mapatec;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -133,8 +134,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Iterar sobre el cursor y crear objetos Evento
         if (cursor.moveToFirst()) {
             do {
-                String eventId = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
-                String titulo = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
+                @SuppressLint("Range") String eventId = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
+                @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
 
                 // Crear objeto Evento y agregarlo a la lista
                 Evento evento = new Evento(eventId, titulo);
