@@ -42,7 +42,7 @@
             android:paddingTop="20dp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonAgregar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -53,43 +53,13 @@
             app:iconTint="#FFFFFF" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewEventos"
+            android:id="@+id/recyclerView"
             android:layout_width="309dp"
             android:layout_marginLeft="25dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-        <LinearLayout
-            android:layout_width="348dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/view_id_title"
-                android:layout_width="209dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="TextView" />
-
-            <Button
-                android:id="@+id/edit"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#448AFF"
-                android:padding="15dp"
-                app:icon="@android:drawable/ic_menu_edit"
-                app:iconTint="@color/black" />
-
-            <Button
-                android:id="@+id/delete"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#FF0B0B"
-                android:padding="15dp"
-                app:icon="@android:drawable/ic_menu_delete"
-                app:iconTint="@color/black" />
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
