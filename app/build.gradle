@@ -35,8 +35,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.maps.android:android-maps-utils:2.2.0'
     implementation fileTree(dir: 'C:\\Users\\16edu\\OneDrive\\Documents\\GitHub\\Mapatec', include: ['*.aar', '*.jar'], exclude: [])
-    implementation fileTree(dir: 'C:\\Users\\16edu\\OneDrive\\Documents\\GitHub\\Mapatec', include: ['*.aar', '*.jar'], exclude: [])
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
     // implementation 'com.indooratlas.android:indooratlas-android-sdk:3.6.3'
    // implementation 'com.indooratlas.android:groundsage-android-sdk:1.0.4'
     testImplementation 'junit:junit:4.13.2'

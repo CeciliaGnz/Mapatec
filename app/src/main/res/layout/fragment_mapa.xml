@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
      package="com.laboratorio.mapatec"
     android:layout_width="match_parent"
@@ -9,23 +10,49 @@
     tools:context=".mapaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="164dp"
-        android:layout_height="36dp"
-        android:layout_gravity="center"
-        android:text="@string/hello_blank_fragment" />
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
 
         android:layout_width="match_parent"
-        android:layout_height="585dp" />
+        android:layout_height="585dp"
+        android:layout_marginTop="20dp" />
 
-    <WebView
-        android:id="@+id/webview"
+    <EditText
+        android:id="@+id/search_edittext"
         android:layout_width="match_parent"
-        android:layout_height="106dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/circulo"
+        android:backgroundTint="@color/white"
+        android:hint="Buscar ubicación"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/highlight_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="200dp"
+        android:padding="5dp"
+        android:text="Resaltar Ubicación" />
+
+    <Button
+        android:id="@+id/center_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="150dp"
+        android:padding="5dp"
+        app:icon="@android:drawable/ic_menu_mylocation"
+        app:iconSize="20dp" />
 
 
 </FrameLayout>
