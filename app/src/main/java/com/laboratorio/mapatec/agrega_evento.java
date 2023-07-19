@@ -20,6 +20,7 @@ public class agrega_evento extends AppCompatActivity {
     TextView textViewIdEvento;
     private Button btnAgregar, btnCancelar;
     private DatabaseHelper databaseHelper;
+    private String idEvento= "evento_0";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +36,7 @@ public class agrega_evento extends AppCompatActivity {
         editTextDescripcion = findViewById(R.id.editTextDescripcion);
         btnAgregar = findViewById(R.id.buttonAgregar);
         btnCancelar = findViewById(R.id.buttonCancelar);
-        textViewIdEvento = findViewById(R.id.event_id);
 
-        // Obtener el próximo ID disponible en formato "evento_X"
-        long nextEventId = databaseHelper.getEventosCount() + 1;
-        String idEvento = "evento_" + nextEventId;
-
-        // Mostrar el próximo ID en un TextView o donde desees
-        textViewIdEvento.setText("ID del evento: " + idEvento);
 
 
         // Configurar el clic del botón Agregar

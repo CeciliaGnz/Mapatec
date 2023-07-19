@@ -110,20 +110,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public int getEventosCount() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String countQuery = "SELECT COUNT(*) FROM " + TABLE_EVENTS;
-        Cursor cursor = db.rawQuery(countQuery, null);
-        int eventosCount = 0; // Inicializamos con 0 por defecto
-
-        if (cursor != null) {
-            cursor.moveToFirst();
-            eventosCount = cursor.getInt(0);
-            cursor.close();
-        }
-
-        db.close();
-        return eventosCount;
-    }
-
 }

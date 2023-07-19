@@ -25,17 +25,11 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/event_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:text="ID:" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Titulo:" />
+            android:text="Titulo del evento:" />
 
         <EditText
             android:id="@+id/editTextTitulo"
@@ -46,7 +40,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hora:" />
+            android:text="Fecha y hora" />
 
         <EditText
             android:id="@+id/editTextHora"
