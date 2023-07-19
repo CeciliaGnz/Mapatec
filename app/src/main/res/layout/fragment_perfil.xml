@@ -62,15 +62,6 @@
         android:textSize="14sp" />
 
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="335dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="400dp"
-        android:background="@drawable/circulo" />
-
-
     <EditText
         android:id="@+id/pass_adm"
         android:layout_width="280dp"
