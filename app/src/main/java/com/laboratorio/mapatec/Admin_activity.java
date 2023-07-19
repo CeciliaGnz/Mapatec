@@ -26,7 +26,7 @@ public class Admin_activity extends AppCompatActivity {
         setContentView(R.layout.seccion_admin);
 
         cedula_view=findViewById(R.id.ced_adm);
-        //RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         Bundle extras = getIntent().getExtras();
         cedula = extras.getString("cedula");
@@ -41,7 +41,27 @@ public class Admin_activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        // Configurar el RecyclerView y el adaptador
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        eventosAdapter = new EventosAdapter(eventosList);
+        recyclerView.setAdapter(eventosAdapter);
+
+        // Obtener eventos de la base de datos y actualizar la lista
+        obtenerEventos();
     }
 
-
+    private void obtenerEventos() {
+        // Aquí debes obtener los eventos de la base de datos utilizando tu DatabaseHelper
+        // y agregarlos a la lista eventosList
+        // Por ejemplo, si tienes un método para obtener todos los eventos de la base de datos,
+        // podrías hacer algo como:
+        eventosList.clear();
+        eventosList.addAll(databaseHelper.obtenerTodosLosEventos()); // Asegúrate de implementar este método en tu DatabaseHelper
+        eventosAdapter.notifyDataSetChanged();
+    }
 }
+
+
