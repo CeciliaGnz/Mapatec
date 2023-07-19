@@ -41,9 +41,8 @@ public class agrega_evento extends AppCompatActivity {
         long nextEventId = databaseHelper.getEventosCount() + 1;
         String idEvento = "evento_" + nextEventId;
 
-        // Mostrar el próximo ID en el TextView
-        textViewIdEvento.setText("ID: " + idEvento);
-
+        // Mostrar el próximo ID en un TextView o donde desees
+        textViewIdEvento.setText("ID del evento: " + idEvento);
 
 
         // Configurar el clic del botón Agregar
