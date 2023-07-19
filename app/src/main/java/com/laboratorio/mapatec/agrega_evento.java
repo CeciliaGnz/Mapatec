@@ -17,6 +17,7 @@ public class agrega_evento extends AppCompatActivity {
     private EditText editTextHora;
     private EditText editTextLugar;
     private EditText editTextDescripcion;
+    TextView textViewIdEvento;
     private Button btnAgregar, btnCancelar;
     private DatabaseHelper databaseHelper;
 
@@ -34,6 +35,14 @@ public class agrega_evento extends AppCompatActivity {
         editTextDescripcion = findViewById(R.id.editTextDescripcion);
         btnAgregar = findViewById(R.id.buttonAgregar);
         btnCancelar = findViewById(R.id.buttonCancelar);
+        textViewIdEvento = findViewById(R.id.event_id);
+
+        // Obtener el próximo ID disponible en formato "evento_X"
+        long nextEventId = databaseHelper.getEventosCount() + 1;
+        String idEvento = "evento_" + nextEventId;
+
+        // Mostrar el próximo ID en un TextView o donde desees
+        textViewIdEvento.setText("ID del evento: " + idEvento);
 
         // Configurar el clic del botón Agregar
         btnAgregar.setOnClickListener(new View.OnClickListener() {
@@ -47,13 +56,6 @@ public class agrega_evento extends AppCompatActivity {
 
                 // Insertar el evento en la base de datos y obtener el ID generado automáticamente
                 long newRowId = databaseHelper.insertarEvento(titulo, hora, lugar, descripcion);
-
-                // Obtener el ID del evento generado automáticamente
-                String idEvento = "evento" + newRowId;
-
-                // Mostrar el ID del evento en un TextView o en un Toast
-                TextView textViewIdEvento = findViewById(R.id.event_id);
-                textViewIdEvento.setText("ID: " + idEvento);
 
                 // Mostrar un Toast indicando que el evento se agregó correctamente
                 Toast.makeText(agrega_evento.this, "Evento agregado correctamente", Toast.LENGTH_SHORT).show();

@@ -71,7 +71,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, "admin321");
         db.insert(TABLE_NAME, null, values);
 
+        // Insertamos el evento inicial en la tabla de eventos
+        String idEventoInicial = "evento_1";
+        String tituloInicial = "Feria de la salud 2023";
+        String horaInicial = "10:00 a.m - 3:00 p.m";
+        String lugarInicial = "Universidad Tecnologica de Panamá, Edificio #3 Vestíbulo";
+        String descripcionInicial = "Descripción del Evento Inicial";
 
+        values.put(COLUMN_EVENT_ID, idEventoInicial);
+        values.put(COLUMN_EVENT_TITLE, tituloInicial);
+        values.put(COLUMN_HOUR, horaInicial);
+        values.put(COLUMN_PLACE, lugarInicial);
+        values.put(COLUMN_DESCRIPTION, descripcionInicial);
+        db.insert(TABLE_EVENTS, null, values);
 
     }
 
@@ -111,5 +123,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Devolver el ID de la nueva fila
         return newRowId;
     }
+
+    public int getEventosCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String countQuery = "SELECT COUNT(*) FROM " + TABLE_EVENTS;
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.moveToFirst();
+        int eventosCount = cursor.getInt(0);
+        cursor.close();
+        db.close();
+        return eventosCount;
+    }
+
 
 }
