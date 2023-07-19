@@ -22,7 +22,7 @@ public class Admin_activity extends AppCompatActivity {
         setContentView(R.layout.seccion_admin);
 
         cedula_view=findViewById(R.id.ced_adm);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        //RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         Bundle extras = getIntent().getExtras();
         cedula = extras.getString("cedula");
