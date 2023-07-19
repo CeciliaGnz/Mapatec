@@ -17,6 +17,10 @@ public class Admin_activity extends AppCompatActivity {
 
     TextView cedula_view;
     String cedula;
+
+    private List<Evento> eventosList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private EventosAdapter eventosAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
