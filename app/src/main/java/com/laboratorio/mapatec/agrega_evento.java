@@ -17,7 +17,6 @@ public class agrega_evento extends AppCompatActivity {
     private EditText editTextHora;
     private EditText editTextLugar;
     private EditText editTextDescripcion;
-    TextView textViewIdEvento;
     private Button btnAgregar, btnCancelar;
     private DatabaseHelper databaseHelper;
     private String idEvento= "evento_0";

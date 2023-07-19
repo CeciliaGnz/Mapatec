@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "admin_databas.db";
+    private static final String DATABASE_NAME = "mapatec.db";
     private static final int DATABASE_VERSION = 1;
 
     //TABLA DE ADMINISTRADORES
@@ -110,4 +110,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public List<Evento> obtenerTodosLosEventos() {
+        List<Evento> eventosList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_EVENTS;
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                // Extraer los datos del cursor y crear una instancia de la clase Evento
+                @SuppressLint("Range") String idEvento = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
+                @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
+                @SuppressLint("Range") String hora = cursor.getString(cursor.getColumnIndex(COLUMN_HOUR));
+                @SuppressLint("Range") String lugar = cursor.getString(cursor.getColumnIndex(COLUMN_PLACE));
+                @SuppressLint("Range") String descripcion = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION));
+
+                Evento evento = new Evento(idEvento, titulo, hora, lugar, descripcion);
+
+                // Agregar el evento a la lista de eventos
+                eventosList.add(evento);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        db.close();
+
+        return eventosList;
+    }
 }

@@ -21,9 +21,13 @@ public class Admin_activity extends AppCompatActivity {
     private List<Evento> eventosList = new ArrayList<>();
     private RecyclerView recyclerView;
     private EventosAdapter eventosAdapter;
+    private DatabaseHelper databaseHelper;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
+
+        databaseHelper = new DatabaseHelper(this);
 
         cedula_view=findViewById(R.id.ced_adm);
         recyclerView = findViewById(R.id.recyclerView);

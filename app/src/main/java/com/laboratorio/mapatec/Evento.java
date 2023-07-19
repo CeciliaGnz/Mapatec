@@ -15,5 +15,12 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getId() {
+        return id;
+    }
     // Agrega los getters y setters necesarios
 }

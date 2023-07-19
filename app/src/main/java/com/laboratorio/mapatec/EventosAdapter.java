@@ -42,9 +42,11 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.EventoVi
 
         EventoViewHolder(View itemView) {
             super(itemView);
-            txtIdEvento = itemView.findViewById(R.id.txtIdEvento);
-            txtTitulo = itemView.findViewById(R.id.txtTitulo);
+            txtIdEvento = itemView.findViewById(R.id.view_id);
+            txtTitulo = itemView.findViewById(R.id.view_title);
             // Inicializa otros TextViews si es necesario
         }
     }
+
+
 }
