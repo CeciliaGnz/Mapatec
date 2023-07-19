@@ -1,10 +1,14 @@
 package com.laboratorio.mapatec;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -119,6 +123,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public List<Evento> getEventos() {
+        List<Evento> eventos = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        // Query para obtener los eventos de la base de datos
+        String query = "SELECT * FROM " + TABLE_EVENTS;
+        Cursor cursor = db.rawQuery(query, null);
+
+        // Iterar sobre el cursor y crear objetos Evento
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String eventId = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
+                @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
+
+                // Crear objeto Evento y agregarlo a la lista
+                Evento evento = new Evento(eventId, titulo);
+                eventos.add(evento);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return eventos;
+    }
 
 }
