@@ -46,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Creamos la tabla de eventos
         String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
-                + COLUMN_EVENT_ID + " TEXT PRIMARY KEY,"
+                + COLUMN_EVENT_ID + " TEXT PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_EVENT_TITLE + " TEXT,"
                 + COLUMN_HOUR + " TEXT,"
                 + COLUMN_PLACE + " TEXT,"
@@ -98,18 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        // Obtener el número actual de eventos en la tabla
-        String countQuery = "SELECT COUNT(*) FROM " + TABLE_EVENTS;
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.moveToFirst();
-        int eventosCount = cursor.getInt(0);
-        cursor.close();
-
-        // Generar el ID del evento con el formato "evento_X"
-        String idEvento = "evento_" + (eventosCount + 1);
-
         // Insertar los valores en la tabla de eventos
-        values.put(COLUMN_EVENT_ID, idEvento);
         values.put(COLUMN_EVENT_TITLE, titulo);
         values.put(COLUMN_HOUR, hora);
         values.put(COLUMN_PLACE, lugar);
@@ -122,17 +111,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Devolver el ID de la nueva fila
         return newRowId;
     }
-
-    public int getEventosCount() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String countQuery = "SELECT COUNT(*) FROM " + TABLE_EVENTS;
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.moveToFirst();
-        int eventosCount = cursor.getInt(0);
-        cursor.close();
-        db.close();
-        return eventosCount;
-    }
-
 
 }

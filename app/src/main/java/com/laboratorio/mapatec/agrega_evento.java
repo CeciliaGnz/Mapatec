@@ -45,21 +45,19 @@ public class agrega_evento extends AppCompatActivity {
                 String lugar = editTextLugar.getText().toString();
                 String descripcion = editTextDescripcion.getText().toString();
 
-                // Obtener el número actual de eventos en la base de datos
-                int eventosCount = databaseHelper.getEventosCount();
-
-                // Generar el ID del nuevo evento con el formato "evento_X"
-                String idEvento = "evento_" + (eventosCount + 1);
-
-                // Mostrar el ID del evento en un TextView
-                TextView textViewIdEvento = findViewById(R.id.event_id);
-                textViewIdEvento.setText("ID del evento: " + idEvento);
-
                 // Insertar el evento en la base de datos y obtener el ID generado automáticamente
                 long newRowId = databaseHelper.insertarEvento(titulo, hora, lugar, descripcion);
 
-                // Mostrar el ID del evento en un Toast
-                mostrarIdEvento(newRowId);
+                // Obtener el ID del evento generado automáticamente
+                String idEvento = "evento" + newRowId;
+
+                // Mostrar el ID del evento en un TextView o en un Toast
+                TextView textViewIdEvento = findViewById(R.id.event_id);
+                textViewIdEvento.setText("ID: " + idEvento);
+
+                // Mostrar un Toast indicando que el evento se agregó correctamente
+                Toast.makeText(agrega_evento.this, "Evento agregado correctamente", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
@@ -72,11 +70,5 @@ public class agrega_evento extends AppCompatActivity {
             }
         });
     }
-
-    private void mostrarIdEvento(long eventoId) {
-        String idEvento = "evento_" + eventoId;
-        Toast.makeText(this, "ID del evento: " + idEvento, Toast.LENGTH_SHORT).show();
-    }
-
 
 }
