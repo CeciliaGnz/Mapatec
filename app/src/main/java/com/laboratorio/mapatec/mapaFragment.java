@@ -1,4 +1,4 @@
-package com.laboratorio.mapatec;
+/*package com.laboratorio.mapatec;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -233,3 +233,4 @@ public class mapaFragment extends Fragment implements OnMapReadyCallback {
         }
     }
 }
+*/ //quitar comentario estoy probando lo otro de evento

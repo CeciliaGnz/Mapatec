@@ -4,9 +4,9 @@
     <item android:title="Inicio"
         android:icon="@drawable/baseline_home_24"
         android:id="@+id/inicio"/>
-    <item android:title="Buscar"
+   <!--<item android:title="Buscar"
         android:icon="@drawable/baseline_search_24"
-        android:id="@+id/buscar"/>
+        android:id="@+id/buscar"/>-->
     <item android:title="Mapa"
         android:icon="@drawable/baseline_map_24"
         android:id="@+id/mapa"/>
