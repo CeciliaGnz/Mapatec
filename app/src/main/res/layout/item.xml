@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="257dp"
+        android:layout_width="278dp"
         android:layout_height="40dp"
         android:orientation="horizontal">
 
@@ -18,23 +18,23 @@
 
         <TextView
             android:id="@+id/view_title"
-            android:layout_width="160dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Titulo Evento" />
 
         <!-- Agregar margen entre los botones -->
         <Button
             android:id="@+id/edit"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/editar" />
 
         <Button
             android:id="@+id/delete"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
             android:layout_marginTop="8dp"
             android:background="@drawable/eliminar" />
 
