@@ -77,6 +77,7 @@ public class Admin_activity extends AppCompatActivity {
                                     Lugar.getText().toString(),
                                     Descripcion.getText().toString());
                             dao.insertar(ev);
+                            lista=dao.verTodos();
                             adapter.notifyDataSetChanged();
                             dialogo.dismiss();
                         }catch (Exception e){

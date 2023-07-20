@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ public class daoEvento {
     Context ct;
 
     String  nombreBD="BDEventos";
-    String tabla= "create table if not exist evento(id_evento integer primary key autoincrement, titulo text, fechahora text, lugar text, descripcion text)";
+    String tabla= "create table if not exists evento(id_evento integer primary key autoincrement, titulo text, fechahora text, lugar text, descripcion text)";
 
     public daoEvento(Context v) {
         this.ct = v;
-        cx = v.openOrCreateDatabase(nombreBD, MODE_PRIVATE, null);
+        cx = v.openOrCreateDatabase(nombreBD, v.MODE_PRIVATE, null);
     }
 
     public boolean insertar(Evento v){
@@ -43,13 +44,34 @@ public class daoEvento {
     }
 
     public ArrayList<Evento> verTodos(){
+        lista.clear();
+        Cursor cursor=cx.rawQuery("select * from evento", null);
+
+        if (cursor!=null && cursor.getCount()>0){
+            cursor.moveToFirst();
+            do{
+                lista.add(new Evento(cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4)));
+            }while (cursor.moveToNext());
+
+        }
         if(this.lista==null){
             return new ArrayList<Evento>();
         }
         return lista;
     }
 
-    public Evento verUno(int id_evento){
+    public Evento verUno(int posicion){
+        Cursor cursor=cx.rawQuery("select * from evento", null);
+        cursor.moveToPosition(posicion);
+        v=new Evento(cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4));
         return v;
     }
 }

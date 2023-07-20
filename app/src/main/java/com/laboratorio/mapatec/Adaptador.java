@@ -43,7 +43,7 @@ public class Adaptador extends BaseAdapter {
     @Override
     public View getView(int posicion, View view, ViewGroup viewGroup) {
         View vi=view;
-        if(vi!=null){
+        if(vi==null){
             LayoutInflater li= (LayoutInflater) a.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vi=li.inflate(R.layout.item,null );
         }

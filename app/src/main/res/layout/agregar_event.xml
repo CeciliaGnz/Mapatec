@@ -7,12 +7,14 @@
     tools:context=".agrega_evento">
 
     <LinearLayout
-        android:layout_width="356dp"
-        android:layout_height="696dp"
+        android:layout_width="283dp"
+        android:layout_height="619dp"
         android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="35dp">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -23,14 +25,7 @@
             android:paddingBottom="20dp"
             android:text="Sección de agregar evento"
             android:textSize="18dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ID:"
-            android:paddingBottom="20dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hora:" />
+            android:text="Fecha y Hora:" />
 
         <EditText
             android:id="@+id/editTextHora"
@@ -79,9 +74,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="144dp"
             android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/buttonAgregar"
@@ -89,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
                 android:text="Agregar" />
 
             <Button
@@ -97,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#EF0000"
                 android:text="Cancelar" />
         </LinearLayout>
