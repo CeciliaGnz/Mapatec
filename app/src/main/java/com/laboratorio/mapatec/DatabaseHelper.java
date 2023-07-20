@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "administrators";
     private static final String COLUMN_CEDULA = "cedula";
     private static final String COLUMN_PASSWORD = "password";
-
+/*
 
     //TABLE DE EVENTOS
     private static final String TABLE_EVENTS = "events";
@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_EVENT_TITLE = "titulo";
     private static final String COLUMN_HOUR = "hora";
     private static final String COLUMN_PLACE = "lugar";
-    private static final String COLUMN_DESCRIPTION = "descripcion";
+    private static final String COLUMN_DESCRIPTION = "descripcion";*/
 
     // Constructor
     public DatabaseHelper(Context context) {
@@ -43,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_CEDULA + " TEXT PRIMARY KEY, " +
                 COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTableQuery);
-
+/*
         //Creamos la tabla de eventos
         String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
                 + COLUMN_EVENT_ID + " TEXT PRIMARY KEY,"
@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_HOUR + " TEXT,"
                 + COLUMN_PLACE + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT" + ")";
-        db.execSQL(CREATE_EVENTS_TABLE);
+        db.execSQL(CREATE_EVENTS_TABLE);*/
 
         // Insertarmos los datos de administradores
 
@@ -92,7 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getTableName() {
         return TABLE_NAME;
     }
-
+/*
     //TABLE EVENTOS
     public long insertarEvento(String titulo, String hora, String lugar, String descripcion) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -121,6 +121,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Devolver el ID de la nueva fila
         return newRowId;
-    }
+    }*/
 
 }
