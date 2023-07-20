@@ -38,9 +38,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAbkbkp-OjpU0QWPV9jOaerJFuiLuleELc"/>
 
-
-
-
         <activity android:name=".Navegar"
             android:exported="true">
         </activity>
