@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CEDULA = "cedula";
     private static final String COLUMN_PASSWORD = "password";
 
-
+/*
     //TABLE DE EVENTOS
     private static final String TABLE_EVENTS = "events";
     private static final String COLUMN_EVENT_ID = "event_id";
@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HOUR = "hora";
     private static final String COLUMN_PLACE = "lugar";
     private static final String COLUMN_DESCRIPTION = "descripcion";
-
+*/
     // Constructor
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTableQuery);
 
-        //Creamos la tabla de eventos
+        /*//Creamos la tabla de eventos
         String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
                 + COLUMN_EVENT_ID + " TEXT PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_EVENT_TITLE + " TEXT,"
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_PLACE + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT" + ")";
         db.execSQL(CREATE_EVENTS_TABLE);
-
+*/
         // Insertarmos los datos de administradores
 
         //Administrador 1
@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //TABLE EVENTOS
-    public long insertarEvento(String titulo, String hora, String lugar, String descripcion) {
+    /*public long insertarEvento(String titulo, String hora, String lugar, String descripcion) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -106,6 +106,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Devolver el ID de la nueva fila
         return newRowId;
-    }
+    }*/
 
 }
