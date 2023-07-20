@@ -23,7 +23,7 @@ public class Admin_activity extends AppCompatActivity {
     daoEvento dao;
     Adaptador adapter;
     ArrayList<Evento> lista;
-    Evento v;
+    Evento ev;
     private DatabaseHelper databaseHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +70,23 @@ public class Admin_activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         try {
-                            v=new Evento(Titulo.getText().toString(),
+                            ev=new Evento(Titulo.getText().toString(),
                                     FechaHora.getText().toString(),
                                     Lugar.getText().toString(),
                                     Descripcion.getText().toString());
-                            dao.insertar(v);
+                            dao.insertar(ev);
+                            adapter.notifyDataSetChanged();
+                            dialogo.dismiss();
                         }catch (Exception e){
                             Toast.makeText(getApplication(),"ERROR",Toast.LENGTH_SHORT).show();
                         }
+                    }
+                });
+
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogo.dismiss();
                     }
                 });
             }
