@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha y hora" />
+            android:text="Fecha y hora:" />
 
         <EditText
             android:id="@+id/editTextHora"
