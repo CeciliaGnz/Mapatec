@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class daoEvento {
 
     SQLiteDatabase cx;
-    ArrayList<Evento>lista=null;
+    ArrayList<Evento>lista=new ArrayList<Evento>();
     Evento v;
     Context ct;
 
@@ -23,6 +23,8 @@ public class daoEvento {
     public daoEvento(Context v) {
         this.ct = v;
         cx = v.openOrCreateDatabase(nombreBD, v.MODE_PRIVATE, null);
+
+        cx.execSQL(tabla);
     }
 
     public boolean insertar(Evento v){
