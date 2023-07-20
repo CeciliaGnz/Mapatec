@@ -52,12 +52,11 @@
             app:icon="@android:drawable/ic_menu_add"
             app:iconTint="#FFFFFF" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="313dp"
-            android:layout_height="534dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="32dp" />
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"></ListView>
 
 
     </LinearLayout>
