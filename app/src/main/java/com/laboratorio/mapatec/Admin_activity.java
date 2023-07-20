@@ -8,16 +8,25 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 
 public class Admin_activity extends AppCompatActivity {
 
     TextView cedula_view;
     String cedula;
+    daoEvento dao;
+    Adaptador adapter;
+    ArrayList<Evento> lista;
     private DatabaseHelper databaseHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
+
+        dao=new daoEvento(this);
+        lista=dao.verTodos();
+        adapter=new Adaptador(this,lista,dao)
 
         databaseHelper = new DatabaseHelper(this);
 

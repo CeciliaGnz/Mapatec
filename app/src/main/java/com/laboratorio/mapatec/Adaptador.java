@@ -17,7 +17,7 @@ public class Adaptador extends BaseAdapter {
     Evento v;
     Activity a;
 
-    public Adaptador(ArrayList<Evento> lista, Activity a, daoEvento dao){
+    public Adaptador(Activity a, ArrayList<Evento> lista, daoEvento dao){
         this.lista=lista;
         this.a=a;
         this.dao=dao;
@@ -52,7 +52,27 @@ public class Adaptador extends BaseAdapter {
 
         TextView id=(TextView) vi.findViewById(R.id.view_id);
         TextView title=(TextView) vi.findViewById(R.id.view_title);
-        Button edit=(Button)vi.findViewById(R.id.b)
+        Button edit=(Button)vi.findViewById(R.id.edit);
+        Button delete=(Button)vi.findViewById(R.id.delete);
+
+        id.setText(v.getId());
+        title.setText(v.getTitulo());
+        edit.setTag(posicion);
+        delete.setTag(posicion);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return vi;
     }
 }
