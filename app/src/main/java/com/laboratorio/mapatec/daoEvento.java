@@ -1,6 +1,8 @@
 package com.laboratorio.mapatec;
 
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 public class daoEvento {
 
     SQLiteDatabase cx;
-    ArrayList<Evento>lista;
+    ArrayList<Evento>lista=null;
     Evento v;
     Context ct;
 
@@ -19,7 +21,7 @@ public class daoEvento {
 
     public daoEvento(Context v) {
         this.ct = v;
-        cx = v.openOrCreateDatabase(nombreBD, Context.MODE_WORLD_WRITEABLE, null);
+        cx = v.openOrCreateDatabase(nombreBD, MODE_PRIVATE, null);
     }
 
     public boolean insertar(Evento v){
@@ -41,6 +43,9 @@ public class daoEvento {
     }
 
     public ArrayList<Evento> verTodos(){
+        if(this.lista==null){
+            return new ArrayList<Evento>();
+        }
         return lista;
     }
 
