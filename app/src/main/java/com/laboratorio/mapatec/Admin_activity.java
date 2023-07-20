@@ -17,26 +17,18 @@ public class Admin_activity extends AppCompatActivity {
 
     TextView cedula_view;
     String cedula;
-    private List<Evento> eventoList = new ArrayList<>();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
 
         cedula_view=findViewById(R.id.ced_adm);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
 
         Bundle extras = getIntent().getExtras();
         cedula = extras.getString("cedula");
         cedula_view.setText("ID Adminstrador: "+ cedula);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        EventoAdapter adapter = new EventoAdapter(eventoList);
-        recyclerView.setAdapter(adapter);
-
-        // Obtener eventos existentes
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        eventoList.addAll(databaseHelper.getEventos());
-        adapter.notifyDataSetChanged();
 
         Button btnAgregarEvento = findViewById(R.id.buttonAgregar);
         btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
