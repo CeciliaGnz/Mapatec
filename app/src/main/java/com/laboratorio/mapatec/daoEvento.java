@@ -38,7 +38,7 @@ public class daoEvento {
     }
 
     public boolean eliminar (int id_evento){
-        return true;
+        return (cx.delete("evento","id="+id_evento,null))>0;
     }
 
     public boolean editar(Evento v){
