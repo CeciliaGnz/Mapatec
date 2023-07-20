@@ -52,9 +52,6 @@ public class Admin_activity extends AppCompatActivity {
         btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Abrir la actividad para agregar un nuevo evento
-                /*Intent intent = new Intent(Admin_activity.this, agrega_evento.class);
-                startActivity(intent);*/
 
                 Dialog dialogo=new Dialog(Admin_activity.this);
                 dialogo.setTitle("Nuevo registro");

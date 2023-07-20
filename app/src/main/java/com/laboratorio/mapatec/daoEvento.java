@@ -42,7 +42,13 @@ public class daoEvento {
     }
 
     public boolean editar(Evento v){
-        return true;
+        ContentValues contenedor=new ContentValues();
+        contenedor.put("titulo",v.getTitulo());
+        contenedor.put("fechahora",v.getFechaHora());
+        contenedor.put("lugar",v.getLugar());
+        contenedor.put("descripcion",v.getDescripcion());
+
+        return (cx.update("evento",contenedor,"id="+v.getId(),null))>0;
     }
 
     public ArrayList<Evento> verTodos(){
