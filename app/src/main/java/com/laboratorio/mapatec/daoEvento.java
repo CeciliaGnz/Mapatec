@@ -48,7 +48,8 @@ public class daoEvento {
         contenedor.put("lugar",v.getLugar());
         contenedor.put("descripcion",v.getDescripcion());
 
-        return (cx.update("evento",contenedor,"id="+v.getId(),null))>0;
+        // Usar el método update de SQLiteDatabase con la cláusula WHERE adecuada
+        return cx.update("evento", contenedor, "id_evento=?", new String[]{String.valueOf(v.getId())}) > 0;
     }
 
     public ArrayList<Evento> verTodos(){
