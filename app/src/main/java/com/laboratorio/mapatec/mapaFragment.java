@@ -47,8 +47,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
 
-public class mapaFragment extends Fragment implements OnMapReadyCallback {
-
+public class mapaFragment extends Fragment /*implements OnMapReadyCallback*/ {
+/*
     private GoogleMap googleMap;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
@@ -231,5 +231,5 @@ public class mapaFragment extends Fragment implements OnMapReadyCallback {
                 });
             }
         }
-    }
+    }*/
 }

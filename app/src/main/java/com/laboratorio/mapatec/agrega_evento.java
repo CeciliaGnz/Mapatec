@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class agrega_evento extends AppCompatActivity {
-
+/*
     private EditText editTextTitulo;
     private EditText editTextHora;
     private EditText editTextLugar;
@@ -66,5 +66,5 @@ public class agrega_evento extends AppCompatActivity {
                 finish();
             }
         });
-    }
+    }*/
 }

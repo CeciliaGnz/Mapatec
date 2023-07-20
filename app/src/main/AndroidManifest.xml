@@ -33,13 +33,11 @@
             android:value="FJBbYohAGfxyrx5DNyxEPaWN9NF/DR0S97govGtXbH13Qa3jHtttV6octoC951hYUfkfI/tID0NwNlRFOeWkh4i3mmhnrjyY/68yvolNyFtfceE/xGe1pjqHNQ7y6w=="/>
         <service
             android:name="com.indooratlas.android.sdk.IALocationService"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="MissingClass" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAbkbkp-OjpU0QWPV9jOaerJFuiLuleELc"/>
-
-
-
 
         <activity android:name=".Navegar"
             android:exported="true">
@@ -56,13 +54,6 @@
         <activity android:name=".Admin_activity"
             android:exported="true">
         </activity>
-        <activity android:name=".agrega_evento"
-            android:exported="true">
-        </activity>
-        <activity android:name=".modificar_evento"
-            android:exported="true">
-        </activity>
-
 
 
         <activity
