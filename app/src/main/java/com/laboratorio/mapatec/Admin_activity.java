@@ -64,6 +64,7 @@ public class Admin_activity extends AppCompatActivity {
                 final EditText Lugar = (EditText)dialogo.findViewById(R.id.editTextLugar);
                 final EditText Descripcion = (EditText)dialogo.findViewById(R.id.editTextDescripcion);
                 final Button btnAgregar = (Button)dialogo.findViewById(R.id.buttonAgregar);
+                btnAgregar.setText("Agregar");
                 final Button btnCancelar = (Button)dialogo.findViewById(R.id.buttonCancelar);
                 btnAgregar.setOnClickListener(new View.OnClickListener() {
                     @Override

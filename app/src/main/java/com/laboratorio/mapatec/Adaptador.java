@@ -90,6 +90,7 @@ public class Adaptador extends BaseAdapter {
                 final EditText Lugar = (EditText)dialogo.findViewById(R.id.editTextLugar);
                 final EditText Descripcion = (EditText)dialogo.findViewById(R.id.editTextDescripcion);
                 final Button btnAgregar = (Button)dialogo.findViewById(R.id.buttonAgregar);
+                btnAgregar.setText("Actualizar");
                 final Button btnCancelar = (Button)dialogo.findViewById(R.id.buttonCancelar);
 
                 v=lista.get(pos);
