@@ -8,6 +8,12 @@ public class Evento {
     String Descripcion;
 
 
+    public Evento(String titulo, String fechaHora, String lugar, String descripcion) {
+        Titulo = titulo;
+        FechaHora = fechaHora;
+        Lugar = lugar;
+        Descripcion = descripcion;
+    }
 
     public Evento(int id, String titulo, String fechaHora, String lugar, String descripcion) {
         this.id = id;

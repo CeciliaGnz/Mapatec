@@ -62,14 +62,14 @@ public class Adaptador extends BaseAdapter {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            //agregarevetno.xml
             }
         });
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            //dialogo para confimar si/no eliminar
             }
         });
 
