@@ -50,12 +50,15 @@ public class Adaptador extends BaseAdapter {
 
         v=lista.get(posicion);
 
+
         TextView id=(TextView) vi.findViewById(R.id.view_id);
         TextView title=(TextView) vi.findViewById(R.id.view_title);
         Button edit=(Button)vi.findViewById(R.id.edit);
         Button delete=(Button)vi.findViewById(R.id.delete);
 
-        id.setText(v.getId());
+        // Convert the ID to string and set it as text for the TextView
+        id.setText(String.valueOf(v.getId()));
+
         title.setText(v.getTitulo());
         edit.setTag(posicion);
         delete.setTag(posicion);
