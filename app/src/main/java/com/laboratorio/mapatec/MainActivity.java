@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, InicioFragment).commit();
                         return true;
                     }
-                    else if(itemId== R.id.buscar) {
+                   /* else if(itemId== R.id.buscar) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, BuscarFragment).commit();
                         return true;
-                    }
+                    }*/
                     else if(itemId==R.id.mapa) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, MapaFragment).commit();
                         return true;

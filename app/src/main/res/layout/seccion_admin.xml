@@ -52,6 +52,12 @@
             app:icon="@android:drawable/ic_menu_add"
             app:iconTint="#FFFFFF" />
 
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"></ListView>
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
