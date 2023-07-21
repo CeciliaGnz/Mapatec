@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,87 +35,109 @@ public class Admin_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
 
-        dao=new daoEvento(this);
-        lista=dao.verTodos();
-        adapter=new Adaptador(this,lista,dao);
-        ListView list=(ListView)findViewById(R.id.lista);
-        list.setAdapter(adapter);
+        if (!sessionManager.isLoggedIn()) {
+            // Si el usuario no ha iniciado sesión, redirigirlo al perfilFragment
+            Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
+            startActivity(intent);
+            finish();
+        } else {
+            dao = new daoEvento(this);
+            lista = dao.verTodos();
+            adapter = new Adaptador(this, lista, dao);
+            ListView list = (ListView) findViewById(R.id.lista);
+            list.setAdapter(adapter);
 
-        sessionManager = new SessionManager(this); // Inicializar el SessionManager
-        databaseHelper = new DatabaseHelper(this);
+            sessionManager = new SessionManager(this); // Inicializar el SessionManager
+            databaseHelper = new DatabaseHelper(this);
 
-        cedula_view=findViewById(R.id.ced_adm);
+            cedula_view = findViewById(R.id.ced_adm);
 
 
-        Bundle extras = getIntent().getExtras();
-        cedula = extras.getString("cedula");
-        cedula_view.setText("ID Adminstrador: "+ cedula);
+            Bundle extras = getIntent().getExtras();
+            cedula = extras.getString("cedula");
+            cedula_view.setText("ID Adminstrador: " + cedula);
 
-        Button btnAgregarEvento = findViewById(R.id.buttonAgregar);
-        btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            Button btnAgregarEvento = findViewById(R.id.buttonAgregar);
+            btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Dialog dialogo=new Dialog(Admin_activity.this);
-                dialogo.setTitle("Nuevo registro");
-                dialogo.setCancelable(true);
-                dialogo.setContentView(R.layout.agregar_event);
-                dialogo.show();
-                // Obtener referencias a los elementos de la interfaz de usuario
-                final EditText Titulo =(EditText)dialogo.findViewById(R.id.editTextTitulo);
-                final EditText FechaHora = (EditText)dialogo.findViewById(R.id.editTextHora);
-                final EditText Lugar = (EditText)dialogo.findViewById(R.id.editTextLugar);
-                final EditText Descripcion = (EditText)dialogo.findViewById(R.id.editTextDescripcion);
-                final Button btnAgregar = (Button)dialogo.findViewById(R.id.buttonAgregar);
-                btnAgregar.setText("Agregar");
-                final Button btnCancelar = (Button)dialogo.findViewById(R.id.buttonCancelar);
-                btnAgregar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        try {
-                            ev=new Evento(Titulo.getText().toString(),
-                                    FechaHora.getText().toString(),
-                                    Lugar.getText().toString(),
-                                    Descripcion.getText().toString());
-                            dao.insertar(ev);
-                            lista=dao.verTodos();
-                            adapter.notifyDataSetChanged();
-                            dialogo.dismiss();
-                        }catch (Exception e){
-                            Toast.makeText(getApplication(),"ERROR",Toast.LENGTH_SHORT).show();
+                    Dialog dialogo = new Dialog(Admin_activity.this);
+                    dialogo.setTitle("Nuevo registro");
+                    dialogo.setCancelable(true);
+                    dialogo.setContentView(R.layout.agregar_event);
+                    dialogo.show();
+                    // Obtener referencias a los elementos de la interfaz de usuario
+                    final EditText Titulo = (EditText) dialogo.findViewById(R.id.editTextTitulo);
+                    final EditText FechaHora = (EditText) dialogo.findViewById(R.id.editTextHora);
+                    final EditText Lugar = (EditText) dialogo.findViewById(R.id.editTextLugar);
+                    final EditText Descripcion = (EditText) dialogo.findViewById(R.id.editTextDescripcion);
+                    final Button btnAgregar = (Button) dialogo.findViewById(R.id.buttonAgregar);
+                    btnAgregar.setText("Agregar");
+                    final Button btnCancelar = (Button) dialogo.findViewById(R.id.buttonCancelar);
+                    btnAgregar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            try {
+                                ev = new Evento(Titulo.getText().toString(),
+                                        FechaHora.getText().toString(),
+                                        Lugar.getText().toString(),
+                                        Descripcion.getText().toString());
+                                dao.insertar(ev);
+                                lista = dao.verTodos();
+                                adapter.notifyDataSetChanged();
+                                dialogo.dismiss();
+                            } catch (Exception e) {
+                                Toast.makeText(getApplication(), "ERROR", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
 
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialogo.dismiss();
-                    }
-                });
-            }
-        });
-
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //ver vista previa de regristro vista.xml
-            }
-        });
+                    btnCancelar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogo.dismiss();
+                        }
+                    });
+                }
+            });
 
 
-        Button btnLogout = findViewById(R.id.logout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Cierra la sesión y redirige a la pantalla de inicio de sesión
-                sessionManager.setLoggedIn(false);
-                Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    //ver vista previa de regristro vista.xml
+                }
+            });
+
+
+            Button btnLogout = findViewById(R.id.logout);
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Cierra la sesión y redirige a la pantalla de inicio de sesión
+                    sessionManager.setLoggedIn(false);
+                    Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
     }
 
+    public void onBackPressed() {
+        // Verificar si el usuario ha iniciado sesión
+        if (sessionManager.isLoggedIn()) {
+            // Si el usuario ha iniciado sesión y presiona el botón "Atrás",
+            // redirige al inicioFragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frame_layout, inicioFragment.newInstance("", ""));
+            transaction.commit();
+        } else {
+            // Si el usuario no ha iniciado sesión y presiona el botón "Atrás",
+            // realiza la acción por defecto (cerrar la actividad)
+            super.onBackPressed();
+        }
+    }
 }
