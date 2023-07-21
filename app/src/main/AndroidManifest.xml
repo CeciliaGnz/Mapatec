@@ -52,7 +52,7 @@
             android:exported="true">
         </activity>
         <activity android:name=".Admin_activity"
-            android:exported="true">
+            android:label="Admin Activity">
         </activity>
 
 

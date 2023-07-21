@@ -35,6 +35,9 @@ public class Admin_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seccion_admin);
 
+
+        sessionManager = new SessionManager(this); // Inicializar el SessionManager
+
         if (!sessionManager.isLoggedIn()) {
             // Si el usuario no ha iniciado sesión, redirigirlo al perfilFragment
             Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
@@ -47,7 +50,7 @@ public class Admin_activity extends AppCompatActivity {
             ListView list = (ListView) findViewById(R.id.lista);
             list.setAdapter(adapter);
 
-            sessionManager = new SessionManager(this); // Inicializar el SessionManager
+
             databaseHelper = new DatabaseHelper(this);
 
             cedula_view = findViewById(R.id.ced_adm);
@@ -117,27 +120,11 @@ public class Admin_activity extends AppCompatActivity {
                 public void onClick(View v) {
                     // Cierra la sesión y redirige a la pantalla de inicio de sesión
                     sessionManager.setLoggedIn(false);
-                    Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
+                    Intent intent = new Intent(Admin_activity.this, Admin_activity.class);
                     startActivity(intent);
-                    finish();
+                    finish(); // Opcional: Finaliza la actividad actual para que no se pueda volver atrás con el botón "Atrás"
                 }
             });
-        }
-    }
-
-    public void onBackPressed() {
-        // Verificar si el usuario ha iniciado sesión
-        if (sessionManager.isLoggedIn()) {
-            // Si el usuario ha iniciado sesión y presiona el botón "Atrás",
-            // redirige al inicioFragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.frame_layout, inicioFragment.newInstance("", ""));
-            transaction.commit();
-        } else {
-            // Si el usuario no ha iniciado sesión y presiona el botón "Atrás",
-            // realiza la acción por defecto (cerrar la actividad)
-            super.onBackPressed();
         }
     }
 }
