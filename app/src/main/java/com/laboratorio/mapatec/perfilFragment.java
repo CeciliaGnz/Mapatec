@@ -32,6 +32,7 @@ public class perfilFragment extends Fragment {
     Button btn_back, btn_login;
     EditText ced, pass;
 
+    private SessionManager sessionManager;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,6 +72,8 @@ public class perfilFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        sessionManager = new SessionManager(getActivity());
     }
 
     @Override
@@ -78,6 +81,8 @@ public class perfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+
         return view;}
 
    //METODO PARA EL BOTTON DE REGRESAR QUE TE LLEVE A UN FRAGMENTO EN ESPECIFICO EN ESTA CASO INICIO
@@ -116,6 +121,7 @@ public class perfilFragment extends Fragment {
                 String password = pass.getText().toString();
 
                 if (validateLogin(cedula, password)) {
+                    sessionManager.setLoggedIn(true);
                     Toast.makeText(getActivity(), "Credenciales Validas", Toast.LENGTH_SHORT).show();
                     showResetPasswordDialog();
 
@@ -174,6 +180,19 @@ public class perfilFragment extends Fragment {
         return isValid;
     }
 
+    public void onResume() {
+        super.onResume();
+
+        // Verificar la sesión al volver al fragmento desde otra actividad
+        if (sessionManager.isLoggedIn()) {
+            String cedula = ced.getText().toString();
+            // Si el usuario ha iniciado sesión, redirigirlo a la actividad Admin_activity
+            Intent intent = new Intent(getActivity(), Admin_activity.class);
+            intent.putExtra("cedula", cedula);
+            startActivity(intent);
+            getActivity().finish();
+        }
+    }
 
     private void showResetPasswordDialog() {
         // Implementar la lógica para mostrar el diálogo de restablecimiento de contraseña aquí

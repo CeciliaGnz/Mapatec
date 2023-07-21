@@ -1,9 +1,8 @@
 package com.laboratorio.mapatec;
 
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -19,15 +18,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CEDULA = "cedula";
     private static final String COLUMN_PASSWORD = "password";
 
-/*
-    //TABLE DE EVENTOS
-    private static final String TABLE_EVENTS = "events";
-    private static final String COLUMN_EVENT_ID = "event_id";
-    private static final String COLUMN_EVENT_TITLE = "titulo";
-    private static final String COLUMN_HOUR = "hora";
-    private static final String COLUMN_PLACE = "lugar";
-    private static final String COLUMN_DESCRIPTION = "descripcion";
-*/
     // Constructor
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,15 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTableQuery);
 
-        /*//Creamos la tabla de eventos
-        String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
-                + COLUMN_EVENT_ID + " TEXT PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_EVENT_TITLE + " TEXT,"
-                + COLUMN_HOUR + " TEXT,"
-                + COLUMN_PLACE + " TEXT,"
-                + COLUMN_DESCRIPTION + " TEXT" + ")";
-        db.execSQL(CREATE_EVENTS_TABLE);
-*/
         // Insertarmos los datos de administradores
 
         //Administrador 1
@@ -68,6 +49,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_CEDULA, "1-234-5678");
         values.put(COLUMN_PASSWORD, "admin321");
         db.insert(TABLE_NAME, null, values);
+
+
 
     }
 
@@ -88,24 +71,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getTableName() {
         return TABLE_NAME;
     }
-
-    //TABLE EVENTOS
-    /*public long insertarEvento(String titulo, String hora, String lugar, String descripcion) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        // Insertar los valores en la tabla de eventos
-        values.put(COLUMN_EVENT_TITLE, titulo);
-        values.put(COLUMN_HOUR, hora);
-        values.put(COLUMN_PLACE, lugar);
-        values.put(COLUMN_DESCRIPTION, descripcion);
-
-        // Insertar el nuevo evento y obtener el ID de la nueva fila
-        long newRowId = db.insert(TABLE_EVENTS, null, values);
-        db.close();
-
-        // Devolver el ID de la nueva fila
-        return newRowId;
-    }*/
 
 }

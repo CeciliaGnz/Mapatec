@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +18,6 @@ public class agrega_evento extends AppCompatActivity {
     private EditText editTextDescripcion;
     private Button btnAgregar, btnCancelar;
     private DatabaseHelper databaseHelper;
-    private String idEvento= "evento_0";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +34,6 @@ public class agrega_evento extends AppCompatActivity {
         btnAgregar = findViewById(R.id.buttonAgregar);
         btnCancelar = findViewById(R.id.buttonCancelar);
 
-
-
         // Configurar el clic del botón Agregar
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +44,17 @@ public class agrega_evento extends AppCompatActivity {
                 String lugar = editTextLugar.getText().toString();
                 String descripcion = editTextDescripcion.getText().toString();
 
-                // Insertar el evento en la base de datos y obtener el ID generado automáticamente
+                // Insertar el evento en la base de datos
                 long newRowId = databaseHelper.insertarEvento(titulo, hora, lugar, descripcion);
 
-                // Mostrar un Toast indicando que el evento se agregó correctamente
-                Toast.makeText(agrega_evento.this, "Evento agregado correctamente", Toast.LENGTH_SHORT).show();
-                finish();
+                if (newRowId != -1) {
+                    // La inserción fue exitosa
+                    Toast.makeText(agrega_evento.this, "Evento agregado correctamente", Toast.LENGTH_SHORT).show();
+                    finish(); // Cerrar la actividad y regresar a la anterior
+                } else {
+                    // Hubo un error en la inserción
+                    Toast.makeText(agrega_evento.this, "Error al agregar el evento", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -66,5 +67,4 @@ public class agrega_evento extends AppCompatActivity {
             }
         });
     }*/
-
 }
