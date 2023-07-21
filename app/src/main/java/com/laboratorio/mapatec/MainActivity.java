@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     inicioFragment InicioFragment= new inicioFragment();
     buscarFragment BuscarFragment= new buscarFragment();
-    //mapaFragment MapaFragment= new mapaFragment(); QUITAR EL COMENTARIO
+    MapaFragment MapaFragment= new MapaFragment();
     perfilFragment PerfilFragment= new perfilFragment();
 
     @Override
@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
                     /*else if(itemId== R.id.buscar) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, BuscarFragment).commit();
                         return true;
-                    }*/ //NO LO USAMOS
-                    /*else if(itemId==R.id.mapa) {
+                    } //NO LO USAMOS*/
+                    else if(itemId==R.id.mapa) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, MapaFragment).commit();
                         return true;
-                    }*///QUITar comentario
+                    }//QUITar comentario
                     else if(itemId==R.id.perfil) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, PerfilFragment).commit();
                         return true;
