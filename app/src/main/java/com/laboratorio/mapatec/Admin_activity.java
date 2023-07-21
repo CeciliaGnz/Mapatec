@@ -126,16 +126,14 @@ public class Admin_activity extends AppCompatActivity {
                 }
             });
 
-            Button btn_back=findViewById(R.id.btnback);
+            Button btn_back = findViewById(R.id.btnback);
             btn_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);}
+                    Intent intent = new Intent(Admin_activity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             });
         }
     }
-
-
 }
