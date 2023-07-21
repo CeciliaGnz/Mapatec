@@ -7,10 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-
 
 
     <application
@@ -25,16 +21,6 @@
         android:theme="@style/Theme.Mapatec"
         tools:targetApi="31">
 
-        <meta-data
-            android:name="com.indooratlas.android.sdk.API_KEY"
-            android:value="2d35891b-3967-443f-8a8f-c049142cb9c2"/>
-        <meta-data
-            android:name="com.indooratlas.android.sdk.API_SECRET"
-            android:value="FJBbYohAGfxyrx5DNyxEPaWN9NF/DR0S97govGtXbH13Qa3jHtttV6octoC951hYUfkfI/tID0NwNlRFOeWkh4i3mmhnrjyY/68yvolNyFtfceE/xGe1pjqHNQ7y6w=="/>
-        <service
-            android:name="com.indooratlas.android.sdk.IALocationService"
-            android:exported="false"
-            tools:ignore="MissingClass" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAbkbkp-OjpU0QWPV9jOaerJFuiLuleELc"/>

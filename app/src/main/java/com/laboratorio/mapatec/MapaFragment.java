@@ -31,7 +31,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.data.geojson.GeoJsonFeature;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
-import com.google.maps.android.data.geojson.GeoJsonPolygon;
+
 import com.google.maps.android.data.geojson.GeoJsonPolygonStyle;
 
 import org.json.JSONException;
@@ -61,7 +61,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
         searchEditText = rootView.findViewById(R.id.search_edittext);
         searchEditText.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) { // Escucha la acción IME_ACTION_SEARCH
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 String searchText = searchEditText.getText().toString().trim();
                 if (!searchText.isEmpty()) {
                     getLocationFromAddress(searchText);
@@ -85,12 +85,12 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             InputStream inputStream = getResources().openRawResource(R.raw.mapat);
             geoJsonLayer = new GeoJsonLayer(googleMap, new JSONObject(convertStreamToString(inputStream)));
 
-            // Personalize the polygon style if desired
+
             GeoJsonPolygonStyle polygonStyle = geoJsonLayer.getDefaultPolygonStyle();
             polygonStyle.setStrokeColor(Color.RED);
             polygonStyle.setStrokeWidth(2);
 
-            // Set a click listener for markers
+
             googleMap.setOnMarkerClickListener(marker -> {
                 String markerTitle = marker.getTitle();
                 if (markerTitle != null) {
@@ -114,34 +114,34 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void getLocationFromAddress(String query) {
-        // Convert the query to lowercase for case-insensitive comparison
+
         String searchQuery = query.toLowerCase();
 
         boolean foundMatchingLocation = false;
         for (GeoJsonFeature feature : geoJsonLayer.getFeatures()) {
-            // Get the "valor" property from the GeoJSON feature
+
             String featureValor = feature.getProperty("valor");
 
-            // Check if the "valor" property matches the search query
+
             if (featureValor != null && featureValor.toLowerCase().equals(searchQuery)) {
                 foundMatchingLocation = true;
 
                 LatLng featureLatLng = (LatLng) feature.getGeometry().getGeometryObject();
                 String featureDescription = feature.getProperty("description");
 
-                googleMap.clear(); // Clear any previous marker
+                googleMap.clear();
                 Marker marker = googleMap.addMarker(new MarkerOptions()
                         .position(featureLatLng)
                         .title(featureDescription)
                         .snippet("Valor: " + featureValor));
 
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(featureLatLng, 15f));
-                break; // Exit the loop when a match is found
+                break;
             }
         }
 
         if (!foundMatchingLocation) {
-            // If no match is found, show a marker at the location from the address
+
             Geocoder geocoder = new Geocoder(requireContext());
             List<Address> addressList;
             try {
@@ -152,7 +152,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                     double longitude = resultAddress.getLongitude();
                     LatLng latLng = new LatLng(latitude, longitude);
 
-                    googleMap.clear(); // Clear any previous marker
+                    googleMap.clear();
                     Marker marker = googleMap.addMarker(new MarkerOptions()
                             .position(latLng)
                             .title("Ubicación"));
