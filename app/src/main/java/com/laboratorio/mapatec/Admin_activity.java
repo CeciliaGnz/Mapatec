@@ -127,4 +127,14 @@ public class Admin_activity extends AppCompatActivity {
             });
         }
     }
+
+    public void onBackPressed() {
+        // Obtener el FragmentManager de la actividad
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Reemplazar el fragmento actual por el fragmento inicioFragment
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frame_layout, inicioFragment.newInstance("", ""));
+        transaction.commit();
+    }
 }
