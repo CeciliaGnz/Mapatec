@@ -125,7 +125,10 @@ public class Admin_activity extends AppCompatActivity {
                     finish(); // Opcional: Finaliza la actividad actual para que no se pueda volver atrás con el botón "Atrás"
                 }
             });
+
+            Button btn_back=findViewById(R.id.btnback);
         }
     }
+
 
 }
