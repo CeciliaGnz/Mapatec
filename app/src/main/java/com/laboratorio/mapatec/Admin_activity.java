@@ -126,6 +126,7 @@ public class Admin_activity extends AppCompatActivity {
                 }
             });
 
+            //Botton para llevar a inicio
             Button btn_back = findViewById(R.id.btnback);
             btn_back.setOnClickListener(new View.OnClickListener() {
                 @Override
