@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     inicioFragment InicioFragment= new inicioFragment();
     buscarFragment BuscarFragment= new buscarFragment();
-    mapaFragment MapaFragment= new mapaFragment();
+    MapaFragment MapaFragment= new MapaFragment();
     perfilFragment PerfilFragment= new perfilFragment();
 
     @Override
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                    /* else if(itemId== R.id.buscar) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, BuscarFragment).commit();
                         return true;
-                    }*/
+                    }*/ //NO SE USO
                     else if(itemId==R.id.mapa) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, MapaFragment).commit();
                         return true;
