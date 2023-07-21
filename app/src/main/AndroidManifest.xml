@@ -23,7 +23,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAbkbkp-OjpU0QWPV9jOaerJFuiLuleELc"/>
+            android:value="AIzaSyCoMrEcXK3l2UjcDQ2UEzZyXsbsxto98Fo"/>
 
         <activity android:name=".Navegar"
             android:exported="true">

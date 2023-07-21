@@ -26,6 +26,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -49,6 +50,20 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     private EditText searchEditText;
     private GeoJsonLayer geoJsonLayer;
 
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, re-center the map
+                centerMapOnCurrentLocation();
+            } else {
+                Toast.makeText(requireContext(), "Permiso de ubicación denegado", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +71,9 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Button centerButton = rootView.findViewById(R.id.center_button);
+        centerButton.setOnClickListener(v -> centerMapOnCurrentLocation());
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
 
@@ -70,9 +88,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             }
             return false;
         });
-
-        Button centerButton = rootView.findViewById(R.id.center_button);
-        centerButton.setOnClickListener(v -> centerMapOnCurrentLocation());
 
         return rootView;
     }
@@ -174,11 +189,26 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                 fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
                     if (location != null) {
                         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                        Marker marker = googleMap.addMarker(new MarkerOptions().position(latLng).title("Mi posición"));
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
+
+                        // Add a red marker at your current location
+                        MarkerOptions markerOptions = new MarkerOptions()
+                                .position(latLng)
+                                .title("Mi posición")
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                        googleMap.addMarker(markerOptions);
+                    } else {
+                        Toast.makeText(requireContext(), "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show();
                     }
                 });
+            } else {
+                // If the location permission is not granted, request it
+                ActivityCompat.requestPermissions(requireActivity(),
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        LOCATION_PERMISSION_REQUEST_CODE);
             }
         }
     }
+
+
 }
