@@ -26,6 +26,8 @@ public class Admin_activity extends AppCompatActivity {
     Adaptador adapter;
     ArrayList<Evento> lista;
     Evento ev;
+
+    private SessionManager sessionManager;
     private DatabaseHelper databaseHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class Admin_activity extends AppCompatActivity {
         list.setAdapter(adapter);
 
 
+        sessionManager = new SessionManager(this);
         databaseHelper = new DatabaseHelper(this);
 
         cedula_view=findViewById(R.id.ced_adm);
@@ -49,6 +52,24 @@ public class Admin_activity extends AppCompatActivity {
         cedula_view.setText("ID Adminstrador: "+ cedula);
 
         Button btnAgregarEvento = findViewById(R.id.buttonAgregar);
+
+        // Botón de logout
+        Button btnCerrarSesion = findViewById(R.id.logout);
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Eliminar la información de la sesión en el SessionManager
+                sessionManager.setLoggedIn(false);
+
+                // Redirigir al usuario a la pantalla de inicio de sesión
+                Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
+                startActivity(intent);
+
+                // Finalizar la actividad actual (sección admin)
+                finish();
+            }
+        });
+
         btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +122,18 @@ public class Admin_activity extends AppCompatActivity {
             }
         });
 
+    }
 
+    protected void onStart() {
+        super.onStart();
+
+        // Verificar si el usuario ha iniciado sesión al iniciar la actividad
+        if (!sessionManager.isLoggedIn()) {
+            // Si el usuario no ha iniciado sesión, redirigirlo a la pantalla de inicio de sesión
+            Intent intent = new Intent(this, perfilFragment.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 }
