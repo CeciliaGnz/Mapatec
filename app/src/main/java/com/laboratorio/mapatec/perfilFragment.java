@@ -184,12 +184,15 @@ public class perfilFragment extends Fragment {
         super.onResume();
 
         // Verificar la sesión al volver al fragmento desde otra actividad
-        if (!sessionManager.isLoggedIn()) {
-            // Si el usuario no ha iniciado sesión o ha cerrado sesión, redirigirlo a la pantalla de inicio de sesión
-            Intent intent = new Intent(getActivity(), perfilFragment.class);
+        if (sessionManager.isLoggedIn()) {
+            String cedula = ced.getText().toString();
+            // Si el usuario ha iniciado sesión, redirigirlo a la actividad Admin_activity
+            Intent intent = new Intent(getActivity(), Admin_activity.class);
+            intent.putExtra("cedula", cedula);
             startActivity(intent);
             getActivity().finish();
-        }}
+        }
+    }
 
     private void showResetPasswordDialog() {
         // Implementar la lógica para mostrar el diálogo de restablecimiento de contraseña aquí
