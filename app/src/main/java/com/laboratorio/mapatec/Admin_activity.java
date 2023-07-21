@@ -127,6 +127,13 @@ public class Admin_activity extends AppCompatActivity {
             });
 
             Button btn_back=findViewById(R.id.btnback);
+            btn_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);}
+                }
+            });
         }
     }
 
