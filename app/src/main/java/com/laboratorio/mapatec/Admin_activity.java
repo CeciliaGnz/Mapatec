@@ -26,9 +26,8 @@ public class Admin_activity extends AppCompatActivity {
     Adaptador adapter;
     ArrayList<Evento> lista;
     Evento ev;
-
-    private SessionManager sessionManager;
     private DatabaseHelper databaseHelper;
+    private SessionManager sessionManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +39,7 @@ public class Admin_activity extends AppCompatActivity {
         ListView list=(ListView)findViewById(R.id.lista);
         list.setAdapter(adapter);
 
-
-        sessionManager = new SessionManager(this);
+        sessionManager = new SessionManager(this); // Inicializar el SessionManager
         databaseHelper = new DatabaseHelper(this);
 
         cedula_view=findViewById(R.id.ced_adm);
@@ -52,24 +50,6 @@ public class Admin_activity extends AppCompatActivity {
         cedula_view.setText("ID Adminstrador: "+ cedula);
 
         Button btnAgregarEvento = findViewById(R.id.buttonAgregar);
-
-        // Botón de logout
-        Button btnCerrarSesion = findViewById(R.id.logout);
-        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Eliminar la información de la sesión en el SessionManager
-                sessionManager.setLoggedIn(false);
-
-                // Redirigir al usuario a la pantalla de inicio de sesión
-                Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
-                startActivity(intent);
-
-                // Finalizar la actividad actual (sección admin)
-                finish();
-            }
-        });
-
         btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,18 +102,18 @@ public class Admin_activity extends AppCompatActivity {
             }
         });
 
-    }
 
-    protected void onStart() {
-        super.onStart();
-
-        // Verificar si el usuario ha iniciado sesión al iniciar la actividad
-        if (!sessionManager.isLoggedIn()) {
-            // Si el usuario no ha iniciado sesión, redirigirlo a la pantalla de inicio de sesión
-            Intent intent = new Intent(this, perfilFragment.class);
-            startActivity(intent);
-            finish();
-        }
+        Button btnLogout = findViewById(R.id.logout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cierra la sesión y redirige a la pantalla de inicio de sesión
+                sessionManager.setLoggedIn(false);
+                Intent intent = new Intent(Admin_activity.this, perfilFragment.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }
